@@ -1,0 +1,9 @@
+,bogdan_category,zendo_proportion,bogdan_proportion,difference,mapping_source
+0,problem_setup,0.0099,0.024,-0.0141,ORIENT
+1,plan_generation,0.2153,0.155,0.0603,HYPO + PLAN
+2,fact_retrieval,0.0836,0.201,-0.1174,DESCRIBE
+3,active_computation,0.5019,0.327,0.1749,TEST
+4,result_consolidation,0.0489,0.101,-0.0521,SYNTHESIZE + JUDGE(accept)
+5,final_answer_emission,0.0045,0.007,-0.0025,RULE
+6,"uncertainty_mgmt +
+self_checking",0.136,0.185,-0.049,JUDGE(reject/uncertain) + MONITOR

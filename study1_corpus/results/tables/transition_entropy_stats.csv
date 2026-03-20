@@ -1,0 +1,15 @@
+,group,metric,mean,median,sd,min,max,n
+0,overall,transition_entropy,3.4561,3.4202,0.4282,2.4081,4.5835,320
+1,task1,transition_entropy,3.56,3.6175,0.4102,2.4339,4.3868,80
+2,task2,transition_entropy,3.4122,3.349,0.4692,2.4114,4.4109,80
+3,task3,transition_entropy,3.3764,3.3004,0.3778,2.6395,4.331,80
+4,task4,transition_entropy,3.4758,3.4248,0.4353,2.4081,4.5835,80
+5,completed,transition_entropy,3.5711,3.5697,0.4399,2.4081,4.5835,163
+6,truncated,transition_entropy,3.3367,3.3095,0.3818,2.4114,4.3073,157
+7,overall,marginal_entropy,2.1464,2.1378,0.2755,1.4776,2.9117,320
+8,task1,marginal_entropy,2.2226,2.256,0.2672,1.5146,2.8351,80
+9,task2,marginal_entropy,2.1274,2.1136,0.2912,1.5216,2.7912,80
+10,task3,marginal_entropy,2.071,2.078,0.2485,1.4938,2.7111,80
+11,task4,marginal_entropy,2.1647,2.1592,0.2759,1.4776,2.9117,80
+12,completed,marginal_entropy,2.2739,2.2851,0.2622,1.4776,2.9117,163
+13,truncated,marginal_entropy,2.0141,2.0152,0.2217,1.4938,2.5415,157

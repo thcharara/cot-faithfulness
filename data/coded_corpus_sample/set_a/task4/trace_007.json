@@ -1,0 +1,4073 @@
+{
+  "task_id": 4,
+  "trace_id": 7,
+  "set": "A",
+  "seed": 4007,
+  "prompt": "<｜begin▁of▁sentence｜>You are given six visual panels labeled A through F. Each panel contains an arrangement of cone-shaped objects that vary in color, size, orientation, and position.\n\nPanels marked with a yellow star follow a hidden rule. Panels without a star do not follow the rule.\n\nYour task: examine all six panels and infer the hidden rule that distinguishes starred from unstarred panels. State your best guess at the end.<｜User｜>Here are the panel descriptions:\n\n{\n  \"_schema\": {\n    \"cone_format\": [\n      \"index\",\n      \"size\",\n      \"colour\",\n      \"orientation\",\n      \"contacts\",\n      \"position\"\n    ]\n  },\n  \"scene\": \"Scene 4\",\n  \"panels\": {\n    \"A\": {\n      \"number_of_cones\": 7,\n      \"yellow_star\": true,\n      \"cones\": [\n        [\n          1,\n          \"Large\",\n          \"Blue\",\n          \"Right tilted (30\\u00b0); apex points up-right\",\n          \"right corner on floor; left corner raised; right side overlaps and fully rests on right side of Cone 2; forms the upper half of the tightly overlapping resting-on-lying (Cones 1 and 2)\",\n          \"medium gap from left border; partly overlaps over Cone 2\"\n        ],\n        [\n          2,\n          \"Medium\",\n          \"Green\",\n          \"Lying left 90\\u00b0; apex points left\",\n          \"left side on floor; right side overlaps and supports right side of Cone 1; forms the lying base of the tightly overlapping resting-on-lying pair (Cones 1 and 2)\",\n          \"directly under Cone 1\"\n        ],\n        [\n          3,\n          \"Medium\",\n          \"Blue\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; left corner meets left corner of Cone 2\",\n          \"directly adjacent right of Cone 2; left of panel centre\"\n        ],\n        [\n          4,\n          \"Small\",\n          \"Green\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; supports Cone 5\",\n          \"medium gap right of Cone 3; right of panel centre\"\n        ],\n        [\n          5,\n          \"Small\",\n          \"Red\",\n          \"Upright 0\\u00b0\",\n          \"stacks on Cone 4; no floor contact\",\n          \"on top of Cone 4\"\n        ],\n        [\n          6,\n          \"Large\",\n          \"Red\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; right corner meets left corner of Cone 7\",\n          \"small gap right of Cones 4-and-5 stacked pair\"\n        ],\n        [\n          7,\n          \"Large\",\n          \"Green\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; left corner meets right corner of Cone 6\",\n          \"directly adjacent right of Cone 6; small gap from right panel border\"\n        ]\n      ]\n    },\n    \"B\": {\n      \"number_of_cones\": 6,\n      \"yellow_star\": false,\n      \"cones\": [\n        [\n          1,\n          \"Medium\",\n          \"Red\",\n          \"Right tilted (20\\u00b0); apex points up-right\",\n          \"right corner on floor; apex touches left side of Cone 3; left corner raised\",\n          \"medium gap from left border; first cone of left cluster; leans toward the nested green pair (Cones 2 and 3)\"\n        ],\n        [\n          2,\n          \"Medium\",\n          \"Green\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; left side touched by apex of Cone 1; fully encloses Cone 3\",\n          \"directly adjacent right of Cone 1; on top of Cone 3\"\n        ],\n        [\n          3,\n          \"small\",\n          \"Green\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; fully nested inside Cone 2\",\n          \"immediately right of Cone 1; nested within Cone 2\"\n        ],\n        [\n          4,\n          \"Medium\",\n          \"Blue\",\n          \"Upright 0\\u00b0\",\n          \"base on floor\",\n          \"large gap right of Cone 3; at right-of-centre; isolated\"\n        ],\n        [\n          5,\n          \"Large\",\n          \"Blue\",\n          \"Upright 0\\u00b0\",\n          \"base on floor\",\n          \"small gap right of Cone 4; isolated\"\n        ],\n        [\n          6,\n          \"Large\",\n          \"Green\",\n          \"Upright 0\\u00b0\",\n          \"base on floor\",\n          \"small gap right of Cone 5; small gap from right panel border; isolated\"\n        ]\n      ]\n    },\n    \"C\": {\n      \"number_of_cones\": 7,\n      \"yellow_star\": true,\n      \"cones\": [\n        [\n          1,\n          \"Large\",\n          \"Red\",\n          \"Lying right 90\\u00b0; apex points right\",\n          \"right side on floor; left corner raised; left side supports and touched by left side of Cone 2; forms the low lying base of the loosely overlapping leaning-on-lying pair (Cones 1 and 2)\",\n          \"medium gap from left border; partly under Cone 2\"\n        ],\n        [\n          2,\n          \"Medium\",\n          \"Red\",\n          \"Left tilted (40\\u00b0); apex points slightly up-right\",\n          \"left corner on floor; apex leans on left side of Cone 1; right corner raised; forms upper half of the loosely overlapping leaning-on-lying pair (Cones 1 and 2)\",\n          \"overlaps partly over Cone 1\"\n        ],\n        [\n          3,\n          \"Small\",\n          \"Blue\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; supports Cone 4\",\n          \"medium gap right of Cone 2; stands at panel centre\"\n        ],\n        [\n          4,\n          \"Small\",\n          \"Blue\",\n          \"Upright 0\\u00b0\",\n          \"stacks on Cone 3; no floor contact\",\n          \"on top of Cone 3\"\n        ],\n        [\n          5,\n          \"Medium\",\n          \"Green\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; supports Cone 6\",\n          \"medium gap right of the blue pair (Cones 3 and 4); right of panel centre\"\n        ],\n        [\n          6,\n          \"Medium\",\n          \"Blue\",\n          \"Upright 0\\u00b0\",\n          \"stacks on Cone 5; no floor contact\",\n          \"on top of Cone 5\"\n        ],\n        [\n          7,\n          \"Large\",\n          \"Green\",\n          \"Right tilted (30\\u00b0); apex points up-right\",\n          \"right corner on floor; left corner raised; apex touches right panel border\",\n          \"medium gap right of Cone 5-6 stacked pair; braces against right panel border\"\n        ]\n      ]\n    },\n    \"D\": {\n      \"number_of_cones\": 7,\n      \"yellow_star\": false,\n      \"cones\": [\n        [\n          1,\n          \"Large\",\n          \"Blue\",\n          \"Upright 0\\u00b0\",\n          \"base on floor\",\n          \"very little gap from left border; first of left upright trio\"\n        ],\n        [\n          2,\n          \"Large\",\n          \"Red\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; right corner meets left corner of Cone 3\",\n          \"very little gap right of Cone 1\"\n        ],\n        [\n          3,\n          \"Medium\",\n          \"Red\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; left corner meets right corner of Cone 2\",\n          \"directly adjacent right of Cone 2; finishes upright trio\"\n        ],\n        [\n          4,\n          \"Medium\",\n          \"Blue\",\n          \"Lying right 90\\u00b0; apex points right\",\n          \"right side on floor; left side supports and touched by apex of Cone 5; forms the low lying base of the loosely overlapping leaning-on-lying blue pair (Cones 4 and 5)\",\n          \"directly adjacent right of Cone 3; partly under Cone 5; at panel centre\"\n        ],\n        [\n          5,\n          \"Small\",\n          \"Blue\",\n          \"Left tilted (40\\u00b0); apex points left\",\n          \"left corner on floor; apex leans on left side of Cone 4; right corner raised\",\n          \"partly overlaps over Cone 4; adjacent right of Cone 4\"\n        ],\n        [\n          6,\n          \"Small\",\n          \"Green\",\n          \"Lying right 90\\u00b0; apex points right\",\n          \"right side on floor\",\n          \"very little gap right of Cone 5\"\n        ],\n        [\n          7,\n          \"Medium\",\n          \"Green\",\n          \"Upright 0\\u00b0\",\n          \"base on floor\",\n          \"medium gap right of Cone 6; small gap from right panel border; isolated\"\n        ]\n      ]\n    },\n    \"E\": {\n      \"number_of_cones\": 5,\n      \"yellow_star\": false,\n      \"cones\": [\n        [\n          1,\n          \"Medium\",\n          \"Blue\",\n          \"Upside-down; slightly right tilted (15\\u00b0); apex points low-left\",\n          \"apex on floor; left corner touches left side of Cone 2\",\n          \"left-of-centre\"\n        ],\n        [\n          2,\n          \"Large\",\n          \"Green\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; left side touched by left corner of Cone 1\",\n          \"immediately right of Cone 1; at panel centre\"\n        ],\n        [\n          3,\n          \"Large\",\n          \"Blue\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; supports Cone 4\",\n          \"small gap right of Cone 2; mid-right\"\n        ],\n        [\n          4,\n          \"Small\",\n          \"Blue\",\n          \"Upright 0\\u00b0\",\n          \"stacks on Cone 3; no floor contact\",\n          \"on top of Cone 3\"\n        ],\n        [\n          5,\n          \"Medium\",\n          \"Red\",\n          \"Upright 0\\u00b0\",\n          \"base on floor\",\n          \"very little gap right of Cone 3; medium gap from right border\"\n        ]\n      ]\n    },\n    \"F\": {\n      \"number_of_cones\": 7,\n      \"yellow_star\": true,\n      \"cones\": [\n        [\n          1,\n          \"Large\",\n          \"Green\",\n          \"Upright 0\\u00b0\",\n          \"base on floor\",\n          \"large gap from left border; at mid-left of panel\"\n        ],\n        [\n          2,\n          \"Small\",\n          \"Red\",\n          \"Lying right 90\\u00b0; apex points right\",\n          \"right side on floor; left side overlaps and supports right side of Cone 3; forms the low lying base of the red overlapping tilted pair (Cones 2 and 3)\",\n          \"small gap right of Cone 1; partly under Cone 3; at left of centre\"\n        ],\n        [\n          3,\n          \"Small\",\n          \"Red\",\n          \"Upside-down; left tilted (30\\u00b0); apex points low-right\",\n          \"apex on floor; right side fully rests on left side of Cone 2; left corner raised\",\n          \"partly overlaps over Cone 2\"\n        ],\n        [\n          4,\n          \"Medium\",\n          \"Blue\",\n          \"Upside-down; right tilted (20\\u00b0); apex points low-left\",\n          \"apex on floor; left corner touches left side of Cone 6; right corner raised\",\n          \"medium gap right of Cone 3; leans toward the upright stacked pair (Cones 5 and 6)\"\n        ],\n        [\n          5,\n          \"Large\",\n          \"Blue\",\n          \"Upright 0\\u00b0\",\n          \"base on floor; supports Cone 6\",\n          \"immediately right of Cone 4; mid-right\"\n        ],\n        [\n          6,\n          \"Large\",\n          \"Red\",\n          \"Upright 0\\u00b0\",\n          \"stacks on Cone 5; no floor contact; left side touched by left corner of Cone 4\",\n          \"on top of Cone 5\"\n        ],\n        [\n          7,\n          \"Medium\",\n          \"Green\",\n          \"Upright 0\\u00b0\",\n          \"base on floor\",\n          \"very small gap right of Cone 5; small gap from right panel border; isolated\"\n        ]\n      ]\n    }\n  }\n}<｜Assistant｜><think>\n",
+  "raw_output": "Okay, so I have this problem where I need to figure out the hidden rule that distinguishes the panels with a yellow star from those without. There are six panels labeled A to F, each with a specific arrangement of cone-shaped objects. The goal is to find out what makes the starred panels (A, C, F) different from the non-starred ones (B, D, E). \n\nFirst, I'll start by looking at the details provided for each panel. I need to analyze the differences in the \"cones\" array for each panel and see what patterns emerge between the starred and non-starred ones.\n\nLet me list out the number of cones each panel has:\n\n- A: 7 cones\n- B: 6 cones\n- C: 7 cones\n- D: 7 cones\n- E: 5 cones\n- F: 7 cones\n\nSo, panels A, C, and F have 7 cones, while B, D, and E have fewer. Hmm, that's interesting. Maybe the number of cones isn't the key factor since A and C are starred but D isn't. So, it's not just the count.\n\nNext, I'll look at other attributes like size, color, orientation, contacts, and position.\n\nStarting with Panel A. It has 7 cones, all with various sizes, colors, and orientations. Looking at the first cone, it's large, blue, right tilted, and so on. Similarly, each cone's details are quite intricate.\n\nSimilarly, Panel B has 6 cones. The first cone is medium, red, right tilted, etc. So, the number of cones is different, but I need to see if there's another pattern.\n\nWait, maybe it's about the color. Let me check:\n\n- A: Cones are a mix of blue, green, red.\n- B: Cones are red, green, blue.\n- C: Red, red, blue, red, blue, red, green.\n- D: Blue, red, red, blue, blue, green, green.\n- E: Blue, green, blue, blue, red.\n- F: Green, red, red, blue, blue, red, green.\n\nSo, all panels have a mix of colors, so color alone isn't the differentiator.\n\nOrientation:\n\n- A: Mix of right tilted, left tilted, upright.\n- B: Right tilted, upright, upright.\n- C: Right tilted, left tilted, upright.\n- D: Upright, upright, lying right, upright.\n- E: Upside-down, upright, upright, upright.\n- F: Right tilted, lying right, upside-down, upright.\n\nSo, orientation varies but isn't the sole factor.\n\nContacts: This refers to how the cones touch each other or the floor.\n\nLooking at the 'contacts' field, it seems that each cone's contact details are unique. For example, in A, cone 1 has its right corner on the floor, cone 2's left corner is raised, etc. It's hard to see a pattern here.\n\nPosition: The position on the panel, like left corner, right corner, center, etc. Again, varies across panels.\n\nWait, maybe it's about the number of cones that are lying on their side versus upright. Let's count:\n\n- Panel A: How many are lying? Cone 1 is right tilted, so lying. Cone 2 is left tilted, so lying. Cone 3 is upright. Cone 4 is upright. Cone 5 is upright. Cone 6 is upright. Cone 7 is upright. So A has 2 lying cones.\n\n- Panel B: Cone 1 is right tilted (lying), Cone 2 is upright, Cone 3 is upright, Cone 4 is upright, Cone 5 is upright, Cone 6 is upright. So, B has 1 lying cone.\n\n- Panel C: Cone 1 is lying, Cone 2 is lying, others are upright. So, C has 2 lying cones.\n\n- Panel D: Cone 4 is lying, Cone 5 is lying, Cone 7 is upright. Wait, D has 2 lying cones.\n\n- Panel E: Cone 1 is upside-down, so lying, others are upright. So, E has 1 lying cone.\n\n- Panel F: Cone 2 is lying, Cone 3 is lying, Cone 4 is upside-down (lying), Cone 6 is upright. So, F has 3 lying cones.\n\nNow, the starred panels (A, C, F) have 2, 2, and 3 lying cones respectively. The non-starred panels (B, D, E) have 1, 2, and 1 lying cones.\n\nWait, that's inconsistent. A has 2, C has 2, F has 3. B has 1, D has 2, E has 1. So, the count of lying cones isn't consistent across starred panels. So, that's not the rule.\n\nHmm. Maybe another approach. Let's look for another pattern.\n\nLooking at the 'contacts' and 'position' details, perhaps it's about how many cones are resting on the floor versus being stacked on others.\n\nIn Panel A, many cones are on the floor, some are stacked. Similarly for others.\n\nWait, maybe it's about the number of cones that are stacked. Let's count:\n\n- A: Cones 5 stacks on 4, 6 on 4, 7 on 6. So, 3 cones are stacked.\n\n- B: Cone 2 stacks on 1, 3 on 1, 6 on 5. So, 3 stacked.\n\n- C: Cone 4 stacks on 3, 6 on 5. So, 2 stacked.\n\n- D: Cone 4 stacks on 3, 5 on 4, 7 on 6. So, 3 stacked.\n\n- E: Cone 4 stacks on 3. So, 1 stacked.\n\n- F: Cone 5 stacks on 4, 6 on 5, 7 on 5. So, 3 stacked.\n\nSo, the number of stacked cones: A=3, B=3, C=2, D=3, E=1, F=3. Not a clear pattern.\n\nAnother thought: Maybe it's about the number of color changes or something else.\n\nWait, perhaps it's about how the cones are arranged in terms of size. For example, in Panel A, the sizes go from large, medium, small, large, small, large, green. Not sure.\n\nAlternatively, maybe the rule is that starred panels have a specific number of color changes in their cone colors. Let's check:\n\n- A: Blue, green, blue, green, red, red, green. So, color changes: B-G, G-B, B-G, G-R, R-R, R-G. So, 6 changes.\n\n- B: Red, green, green, blue, blue, green. Changes: R-G, G-G, G-B, B-G, G-G. So, 4 changes.\n\n- C: Red, red, blue, blue, red, blue, green. Changes: R-R (no change), R-B, B-B (no), B-R, R-B, B-G. So, 4 changes.\n\n- D: Blue, red, red, blue, blue, green, green. Changes: B-R, R-R, R-B, B-B, B-G, G-G. So, 4 changes.\n\n- E: Blue, green, blue, blue, red. Changes: B-G, G-B, B-B, B-R. So, 3 changes.\n\n- F: Green, red, red, blue, blue, red, green. Changes: G-R, R-R, R-B, B-B, B-R, R-G. So, 5 changes.\n\nHmm, so A=6, B=4, C=4, D=4, E=3, F=5. Not a clear pattern.\n\nAnother angle: Maybe the number of color layers. For example, how many different colors are present.\n\n- A: Blue, green, red. Three colors.\n\n- B: Red, green, blue. Three colors.\n\n- C: Red, blue, green. Three colors.\n\n- D: Blue, red, green. Three colors.\n\n- E: Blue, green, red. Three colors.\n\n- F: Green, red, blue. Three colors.\n\nSo, all panels have three colors. So, that's not the rule.\n\nWait, maybe the order of colors. For example, starting color.\n\n- A: Starts with Blue.\n\n- B: Starts with Red.\n\n- C: Starts with Red.\n\n- D: Starts with Blue.\n\n- E: Starts with Blue.\n\n- F: Starts with Green.\n\nSo, not consistent.\n\nAlternatively, perhaps it's about the number of color transitions, but earlier that didn't show a pattern.\n\nWait, maybe it's about the number of small cones. Let's see:\n\n- A: Small: 2 cones (4 and 5).\n\n- B: Small: 1 cone (3).\n\n- C: Small: 2 cones (3 and 4).\n\n- D: Small: 1 cone (4).\n\n- E: Small: 1 cone (4).\n\n- F: Small: 2 cones (2 and 4).\n\nSo, A=2, B=1, C=2, D=1, E=1, F=2. Not a clear pattern.\n\nHmm, maybe the number of large cones.\n\n- A: Large: 3 cones (1,6,7).\n\n- B: Large: 2 cones (1,2).\n\n- C: Large: 2 cones (1,7).\n\n- D: Large: 2 cones (1,2).\n\n- E: Large: 1 cone (2).\n\n- F: Large: 2 cones (1,6).\n\nSo, A=3, B=2, C=2, D=2, E=1, F=2. Not consistent.\n\nAnother idea: Maybe the number of cones that are 'stacked' on others. Let's see:\n\n- A: 3 cones stacked (5 on4, 6 on4,7 on6).\n\n- B: 3 cones stacked (2 on1,3 on1,6 on5).\n\n- C: 2 cones stacked (4 on3,6 on5).\n\n- D: 3 cones stacked (4 on3,5 on4,7 on6).\n\n- E: 1 cone stacked (4 on3).\n\n- F: 3 cones stacked (5 on4,6 on5,7 on5).\n\nSo, A=3, B=3, C=2, D=3, E=1, F=3. Still not a clear pattern.\n\nWait, maybe it's about the number of 'stacks' in a way that the topmost cone is a certain color.\n\nLooking at the topmost cones:\n\n- A: Cone7 is green.\n\n- B: Cone6 is green.\n\n- C: Cone7 is green.\n\n- D: Cone7 is green.\n\n- E: Cone5 is red.\n\n- F: Cone7 is green.\n\nSo, A, B, C, D, F have green as topmost, E has red. Maybe the rule is that if the topmost cone is green, it's a star? But E has red, which isn't a star, and D is a non-starred panel but also has green on top. So, that doesn't fit.\n\nAlternatively, maybe the topmost cone's color relates to something else.\n\nWait, perhaps the number of colors used in the 'contacts' description. Let me see:\n\nFor each cone, the 'contacts' describe how they touch others or the floor. Maybe the number of contacts is a factor.\n\nAlternatively, perhaps it's about the number of times 'stacks on' appears in the contacts.\n\nLooking at 'stacks on':\n\n- A: 3 times (5 on4,6 on4,7 on6).\n\n- B: 3 times (2 on1,3 on1,6 on5).\n\n- C: 2 times (4 on3,6 on5).\n\n- D: 3 times (4 on3,5 on4,7 on6).\n\n- E: 1 time (4 on3).\n\n- F: 3 times (5 on4,6 on5,7 on5).\n\nSo, A, B, D, F have 3, B=3, C=2, E=1. So, not consistent.\n\nAlternatively, maybe the number of 'stacks on' is related, but it's unclear.\n\nAnother angle: Maybe the number of cones that are the first or last in the list.\n\nIn each panel, the first cone and the last cone's properties.\n\nLooking at the first cone:\n\n- A: Large, Blue, right tilted.\n\n- B: Medium, Red, right tilted.\n\n- C: Large, Red, lying right.\n\n- D: Large, Blue, upright.\n\n- E: Medium, Blue, upside-down.\n\n- F: Large, Green, upright.\n\nSo, first cone colors: A=Blue, B=Red, C=Red, D=Blue, E=Blue, F=Green.\n\nNot a clear pattern.\n\nLast cone:\n\n- A: Large, Green, upright.\n\n- B: Large, Green, upright.\n\n- C: Medium, Green, upright.\n\n- D: Medium, Green, upright.\n\n- E: Medium, Red, upright.\n\n- F: Medium, Green, upright.\n\nSo, A, B, C, D, F have green as last cone; E has red. So, E is different, but it's a non-starred panel, so that might not help.\n\nWait, maybe the number of 'lying' cones. Earlier, I saw that:\n\n- A: 2 lying cones.\n\n- B: 1 lying cone.\n\n- C: 2 lying cones.\n\n- D: 2 lying cones.\n\n- E: 1 lying cone.\n\n- F: 3 lying cones.\n\nSo, the number of lying cones is 2,1,2,2,1,3. The starred panels A, C, F have 2,2,3 lying cones. The non-starred panels B, D, E have 1,2,1. So, maybe the rule is that if the number of lying cones is more than 1, it's a star? But D has 2 lying cones but isn't starred. So, that doesn't fit.\n\nWait, maybe it's about the number of 'stacked' cones. Let me see:\n\n- A: 3 stacked.\n\n- B: 3.\n\n- C: 2.\n\n- D: 3.\n\n- E:1.\n\n- F:3.\n\nSo, A, B, D, F have 3, which are all starred except D is non-starred. So, that doesn't fit.\n\nWait, perhaps the number of color changes in the 'size' sequence. For example, in Panel A: sizes are Large, Medium, Small, Large, Small, Large, Green. So, changes from Large to Medium, Medium to Small, Small to Large, Large to Small, Small to Large. That's 5 changes.\n\nPanel B: Medium, Medium, Small, Large, Large, Large. Changes: Medium to Small, Small to Large. So, 2 changes.\n\nPanel C: Large, Small, Small, Medium, Medium, Small, Large. Changes: L-S, S-M, M-M, M-S, S-L. So, 4 changes.\n\nPanel D: Large, Large, Medium, Medium, Small, Large, Large. Changes: L-L, L-M, M-M, M-S, S-L. So, 4 changes.\n\nPanel E: Medium, Large, Large, Small, Large. Changes: M-L, L-L, L-S, S-L. So, 3 changes.\n\nPanel F: Large, Small, Small, Medium, Large, Large, Large. Changes: L-S, S-M, M-L, L-L. So, 3 changes.\n\nSo, A=5, B=2, C=4, D=4, E=3, F=3. No clear pattern.\n\nAnother idea: Maybe it's about the number of times a color is used. For example:\n\n- A: Blue, Green, Red. Each used multiple times.\n\n- B: Red, Green, Blue. Similarly.\n\n- C: Red, Blue, Green.\n\n- D: Blue, Red, Green.\n\n- E: Blue, Green, Red.\n\n- F: Green, Red, Blue.\n\nSo, all panels use three colors. Not helpful.\n\nWait, maybe the rule is that the number of 'stacks on' is equal to the number of stars. But A=3, B=3, C=2, D=3, E=1, F=3. So, A, C, F have stars but C has 2, which doesn't match. So, that doesn't fit.\n\nAnother approach: Maybe it's about the number of 'stacks on' being odd or even. But A=3, B=3, C=2, D=3, E=1, F=3. So, A, B, C, D, F have odd numbers, E has 1. But A, C, F are stars, B, D are non-starred, and E is non-starred. So, E has 1, which is odd, but it's non-starred. So, that doesn't help.\n\nWait, maybe it's about the number of 'stacks on' being a multiple of 3. A=3, B=3, C=2, D=3, E=1, F=3. So, A, B, D, F have multiples of 3. C=2, E=1. So, A, B, D, F are stars, but C is a star with 2, which isn't a multiple of 3. So, that doesn't fit.\n\nWait, perhaps the rule is that the number of 'stacks on' equals the number of stars. But A=3, C=2, F=3. So, A and F have 3, C has 2. But they are all stars. Not consistent.\n\nAnother angle: Maybe the number of 'stacks on' corresponds to something else, but I'm stuck.\n\nLet me think differently. Maybe it's about the number of 'stacks on' being the same across all panels. But no, they vary.\n\nWait, maybe it's about the number of 'stacks on' in the topmost cone. For example, in A, the topmost is 7, which stacks on 6. In B, topmost is 6, which stacks on 5. In C, topmost is7, stacks on5. In D, topmost is7, stacks on6. In E, topmost is5, which stacks on3. In F, topmost is7, stacks on5.\n\nSo, A=6, B=5, C=5, D=6, E=3, F=5. Not a pattern.\n\nAlternatively, maybe it's about the number of 'stacks on' in the first cone. For example, A's first cone is1, which doesn't stack on anyone. B's first cone is1, which has 2 and3",
+  "thinking_text": "Okay, so I have this problem where I need to figure out the hidden rule that distinguishes the panels with a yellow star from those without. There are six panels labeled A to F, each with a specific arrangement of cone-shaped objects. The goal is to find out what makes the starred panels (A, C, F) different from the non-starred ones (B, D, E). \n\nFirst, I'll start by looking at the details provided for each panel. I need to analyze the differences in the \"cones\" array for each panel and see what patterns emerge between the starred and non-starred ones.\n\nLet me list out the number of cones each panel has:\n\n- A: 7 cones\n- B: 6 cones\n- C: 7 cones\n- D: 7 cones\n- E: 5 cones\n- F: 7 cones\n\nSo, panels A, C, and F have 7 cones, while B, D, and E have fewer. Hmm, that's interesting. Maybe the number of cones isn't the key factor since A and C are starred but D isn't. So, it's not just the count.\n\nNext, I'll look at other attributes like size, color, orientation, contacts, and position.\n\nStarting with Panel A. It has 7 cones, all with various sizes, colors, and orientations. Looking at the first cone, it's large, blue, right tilted, and so on. Similarly, each cone's details are quite intricate.\n\nSimilarly, Panel B has 6 cones. The first cone is medium, red, right tilted, etc. So, the number of cones is different, but I need to see if there's another pattern.\n\nWait, maybe it's about the color. Let me check:\n\n- A: Cones are a mix of blue, green, red.\n- B: Cones are red, green, blue.\n- C: Red, red, blue, red, blue, red, green.\n- D: Blue, red, red, blue, blue, green, green.\n- E: Blue, green, blue, blue, red.\n- F: Green, red, red, blue, blue, red, green.\n\nSo, all panels have a mix of colors, so color alone isn't the differentiator.\n\nOrientation:\n\n- A: Mix of right tilted, left tilted, upright.\n- B: Right tilted, upright, upright.\n- C: Right tilted, left tilted, upright.\n- D: Upright, upright, lying right, upright.\n- E: Upside-down, upright, upright, upright.\n- F: Right tilted, lying right, upside-down, upright.\n\nSo, orientation varies but isn't the sole factor.\n\nContacts: This refers to how the cones touch each other or the floor.\n\nLooking at the 'contacts' field, it seems that each cone's contact details are unique. For example, in A, cone 1 has its right corner on the floor, cone 2's left corner is raised, etc. It's hard to see a pattern here.\n\nPosition: The position on the panel, like left corner, right corner, center, etc. Again, varies across panels.\n\nWait, maybe it's about the number of cones that are lying on their side versus upright. Let's count:\n\n- Panel A: How many are lying? Cone 1 is right tilted, so lying. Cone 2 is left tilted, so lying. Cone 3 is upright. Cone 4 is upright. Cone 5 is upright. Cone 6 is upright. Cone 7 is upright. So A has 2 lying cones.\n\n- Panel B: Cone 1 is right tilted (lying), Cone 2 is upright, Cone 3 is upright, Cone 4 is upright, Cone 5 is upright, Cone 6 is upright. So, B has 1 lying cone.\n\n- Panel C: Cone 1 is lying, Cone 2 is lying, others are upright. So, C has 2 lying cones.\n\n- Panel D: Cone 4 is lying, Cone 5 is lying, Cone 7 is upright. Wait, D has 2 lying cones.\n\n- Panel E: Cone 1 is upside-down, so lying, others are upright. So, E has 1 lying cone.\n\n- Panel F: Cone 2 is lying, Cone 3 is lying, Cone 4 is upside-down (lying), Cone 6 is upright. So, F has 3 lying cones.\n\nNow, the starred panels (A, C, F) have 2, 2, and 3 lying cones respectively. The non-starred panels (B, D, E) have 1, 2, and 1 lying cones.\n\nWait, that's inconsistent. A has 2, C has 2, F has 3. B has 1, D has 2, E has 1. So, the count of lying cones isn't consistent across starred panels. So, that's not the rule.\n\nHmm. Maybe another approach. Let's look for another pattern.\n\nLooking at the 'contacts' and 'position' details, perhaps it's about how many cones are resting on the floor versus being stacked on others.\n\nIn Panel A, many cones are on the floor, some are stacked. Similarly for others.\n\nWait, maybe it's about the number of cones that are stacked. Let's count:\n\n- A: Cones 5 stacks on 4, 6 on 4, 7 on 6. So, 3 cones are stacked.\n\n- B: Cone 2 stacks on 1, 3 on 1, 6 on 5. So, 3 stacked.\n\n- C: Cone 4 stacks on 3, 6 on 5. So, 2 stacked.\n\n- D: Cone 4 stacks on 3, 5 on 4, 7 on 6. So, 3 stacked.\n\n- E: Cone 4 stacks on 3. So, 1 stacked.\n\n- F: Cone 5 stacks on 4, 6 on 5, 7 on 5. So, 3 stacked.\n\nSo, the number of stacked cones: A=3, B=3, C=2, D=3, E=1, F=3. Not a clear pattern.\n\nAnother thought: Maybe it's about the number of color changes or something else.\n\nWait, perhaps it's about how the cones are arranged in terms of size. For example, in Panel A, the sizes go from large, medium, small, large, small, large, green. Not sure.\n\nAlternatively, maybe the rule is that starred panels have a specific number of color changes in their cone colors. Let's check:\n\n- A: Blue, green, blue, green, red, red, green. So, color changes: B-G, G-B, B-G, G-R, R-R, R-G. So, 6 changes.\n\n- B: Red, green, green, blue, blue, green. Changes: R-G, G-G, G-B, B-G, G-G. So, 4 changes.\n\n- C: Red, red, blue, blue, red, blue, green. Changes: R-R (no change), R-B, B-B (no), B-R, R-B, B-G. So, 4 changes.\n\n- D: Blue, red, red, blue, blue, green, green. Changes: B-R, R-R, R-B, B-B, B-G, G-G. So, 4 changes.\n\n- E: Blue, green, blue, blue, red. Changes: B-G, G-B, B-B, B-R. So, 3 changes.\n\n- F: Green, red, red, blue, blue, red, green. Changes: G-R, R-R, R-B, B-B, B-R, R-G. So, 5 changes.\n\nHmm, so A=6, B=4, C=4, D=4, E=3, F=5. Not a clear pattern.\n\nAnother angle: Maybe the number of color layers. For example, how many different colors are present.\n\n- A: Blue, green, red. Three colors.\n\n- B: Red, green, blue. Three colors.\n\n- C: Red, blue, green. Three colors.\n\n- D: Blue, red, green. Three colors.\n\n- E: Blue, green, red. Three colors.\n\n- F: Green, red, blue. Three colors.\n\nSo, all panels have three colors. So, that's not the rule.\n\nWait, maybe the order of colors. For example, starting color.\n\n- A: Starts with Blue.\n\n- B: Starts with Red.\n\n- C: Starts with Red.\n\n- D: Starts with Blue.\n\n- E: Starts with Blue.\n\n- F: Starts with Green.\n\nSo, not consistent.\n\nAlternatively, perhaps it's about the number of color transitions, but earlier that didn't show a pattern.\n\nWait, maybe it's about the number of small cones. Let's see:\n\n- A: Small: 2 cones (4 and 5).\n\n- B: Small: 1 cone (3).\n\n- C: Small: 2 cones (3 and 4).\n\n- D: Small: 1 cone (4).\n\n- E: Small: 1 cone (4).\n\n- F: Small: 2 cones (2 and 4).\n\nSo, A=2, B=1, C=2, D=1, E=1, F=2. Not a clear pattern.\n\nHmm, maybe the number of large cones.\n\n- A: Large: 3 cones (1,6,7).\n\n- B: Large: 2 cones (1,2).\n\n- C: Large: 2 cones (1,7).\n\n- D: Large: 2 cones (1,2).\n\n- E: Large: 1 cone (2).\n\n- F: Large: 2 cones (1,6).\n\nSo, A=3, B=2, C=2, D=2, E=1, F=2. Not consistent.\n\nAnother idea: Maybe the number of cones that are 'stacked' on others. Let's see:\n\n- A: 3 cones stacked (5 on4, 6 on4,7 on6).\n\n- B: 3 cones stacked (2 on1,3 on1,6 on5).\n\n- C: 2 cones stacked (4 on3,6 on5).\n\n- D: 3 cones stacked (4 on3,5 on4,7 on6).\n\n- E: 1 cone stacked (4 on3).\n\n- F: 3 cones stacked (5 on4,6 on5,7 on5).\n\nSo, A=3, B=3, C=2, D=3, E=1, F=3. Still not a clear pattern.\n\nWait, maybe it's about the number of 'stacks' in a way that the topmost cone is a certain color.\n\nLooking at the topmost cones:\n\n- A: Cone7 is green.\n\n- B: Cone6 is green.\n\n- C: Cone7 is green.\n\n- D: Cone7 is green.\n\n- E: Cone5 is red.\n\n- F: Cone7 is green.\n\nSo, A, B, C, D, F have green as topmost, E has red. Maybe the rule is that if the topmost cone is green, it's a star? But E has red, which isn't a star, and D is a non-starred panel but also has green on top. So, that doesn't fit.\n\nAlternatively, maybe the topmost cone's color relates to something else.\n\nWait, perhaps the number of colors used in the 'contacts' description. Let me see:\n\nFor each cone, the 'contacts' describe how they touch others or the floor. Maybe the number of contacts is a factor.\n\nAlternatively, perhaps it's about the number of times 'stacks on' appears in the contacts.\n\nLooking at 'stacks on':\n\n- A: 3 times (5 on4,6 on4,7 on6).\n\n- B: 3 times (2 on1,3 on1,6 on5).\n\n- C: 2 times (4 on3,6 on5).\n\n- D: 3 times (4 on3,5 on4,7 on6).\n\n- E: 1 time (4 on3).\n\n- F: 3 times (5 on4,6 on5,7 on5).\n\nSo, A, B, D, F have 3, B=3, C=2, E=1. So, not consistent.\n\nAlternatively, maybe the number of 'stacks on' is related, but it's unclear.\n\nAnother angle: Maybe the number of cones that are the first or last in the list.\n\nIn each panel, the first cone and the last cone's properties.\n\nLooking at the first cone:\n\n- A: Large, Blue, right tilted.\n\n- B: Medium, Red, right tilted.\n\n- C: Large, Red, lying right.\n\n- D: Large, Blue, upright.\n\n- E: Medium, Blue, upside-down.\n\n- F: Large, Green, upright.\n\nSo, first cone colors: A=Blue, B=Red, C=Red, D=Blue, E=Blue, F=Green.\n\nNot a clear pattern.\n\nLast cone:\n\n- A: Large, Green, upright.\n\n- B: Large, Green, upright.\n\n- C: Medium, Green, upright.\n\n- D: Medium, Green, upright.\n\n- E: Medium, Red, upright.\n\n- F: Medium, Green, upright.\n\nSo, A, B, C, D, F have green as last cone; E has red. So, E is different, but it's a non-starred panel, so that might not help.\n\nWait, maybe the number of 'lying' cones. Earlier, I saw that:\n\n- A: 2 lying cones.\n\n- B: 1 lying cone.\n\n- C: 2 lying cones.\n\n- D: 2 lying cones.\n\n- E: 1 lying cone.\n\n- F: 3 lying cones.\n\nSo, the number of lying cones is 2,1,2,2,1,3. The starred panels A, C, F have 2,2,3 lying cones. The non-starred panels B, D, E have 1,2,1. So, maybe the rule is that if the number of lying cones is more than 1, it's a star? But D has 2 lying cones but isn't starred. So, that doesn't fit.\n\nWait, maybe it's about the number of 'stacked' cones. Let me see:\n\n- A: 3 stacked.\n\n- B: 3.\n\n- C: 2.\n\n- D: 3.\n\n- E:1.\n\n- F:3.\n\nSo, A, B, D, F have 3, which are all starred except D is non-starred. So, that doesn't fit.\n\nWait, perhaps the number of color changes in the 'size' sequence. For example, in Panel A: sizes are Large, Medium, Small, Large, Small, Large, Green. So, changes from Large to Medium, Medium to Small, Small to Large, Large to Small, Small to Large. That's 5 changes.\n\nPanel B: Medium, Medium, Small, Large, Large, Large. Changes: Medium to Small, Small to Large. So, 2 changes.\n\nPanel C: Large, Small, Small, Medium, Medium, Small, Large. Changes: L-S, S-M, M-M, M-S, S-L. So, 4 changes.\n\nPanel D: Large, Large, Medium, Medium, Small, Large, Large. Changes: L-L, L-M, M-M, M-S, S-L. So, 4 changes.\n\nPanel E: Medium, Large, Large, Small, Large. Changes: M-L, L-L, L-S, S-L. So, 3 changes.\n\nPanel F: Large, Small, Small, Medium, Large, Large, Large. Changes: L-S, S-M, M-L, L-L. So, 3 changes.\n\nSo, A=5, B=2, C=4, D=4, E=3, F=3. No clear pattern.\n\nAnother idea: Maybe it's about the number of times a color is used. For example:\n\n- A: Blue, Green, Red. Each used multiple times.\n\n- B: Red, Green, Blue. Similarly.\n\n- C: Red, Blue, Green.\n\n- D: Blue, Red, Green.\n\n- E: Blue, Green, Red.\n\n- F: Green, Red, Blue.\n\nSo, all panels use three colors. Not helpful.\n\nWait, maybe the rule is that the number of 'stacks on' is equal to the number of stars. But A=3, B=3, C=2, D=3, E=1, F=3. So, A, C, F have stars but C has 2, which doesn't match. So, that doesn't fit.\n\nAnother approach: Maybe it's about the number of 'stacks on' being odd or even. But A=3, B=3, C=2, D=3, E=1, F=3. So, A, B, C, D, F have odd numbers, E has 1. But A, C, F are stars, B, D are non-starred, and E is non-starred. So, E has 1, which is odd, but it's non-starred. So, that doesn't help.\n\nWait, maybe it's about the number of 'stacks on' being a multiple of 3. A=3, B=3, C=2, D=3, E=1, F=3. So, A, B, D, F have multiples of 3. C=2, E=1. So, A, B, D, F are stars, but C is a star with 2, which isn't a multiple of 3. So, that doesn't fit.\n\nWait, perhaps the rule is that the number of 'stacks on' equals the number of stars. But A=3, C=2, F=3. So, A and F have 3, C has 2. But they are all stars. Not consistent.\n\nAnother angle: Maybe the number of 'stacks on' corresponds to something else, but I'm stuck.\n\nLet me think differently. Maybe it's about the number of 'stacks on' being the same across all panels. But no, they vary.\n\nWait, maybe it's about the number of 'stacks on' in the topmost cone. For example, in A, the topmost is 7, which stacks on 6. In B, topmost is 6, which stacks on 5. In C, topmost is7, stacks on5. In D, topmost is7, stacks on6. In E, topmost is5, which stacks on3. In F, topmost is7, stacks on5.\n\nSo, A=6, B=5, C=5, D=6, E=3, F=5. Not a pattern.\n\nAlternatively, maybe it's about the number of 'stacks on' in the first cone. For example, A's first cone is1, which doesn't stack on anyone. B's first cone is1, which has 2 and3",
+  "answer_text": "",
+  "thinking_tokens": 4096,
+  "total_tokens": 4096,
+  "prompt_tokens": 2789,
+  "truncated": true,
+  "generation_params": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "max_new_tokens": 4096
+  },
+  "generation_time_seconds": 336.4,
+  "timestamp": "2026-02-18T10:44:41.188008",
+  "model": "DeepSeek-R1-Distill-Llama-8B",
+  "quantization": "4bit-nf4",
+  "sentences": [
+    {
+      "sentence_id": 0,
+      "text": "Okay, so I have this problem where I need to figure out the hidden rule that distinguishes the panels with a yellow star from those without.",
+      "start_char": 0,
+      "end_char": 140,
+      "token_count": 29,
+      "coding": {
+        "macro_label": "SETUP",
+        "micro_label": "ORIENT",
+        "confidence": "high",
+        "depends_on": []
+      }
+    },
+    {
+      "sentence_id": 1,
+      "text": "There are six panels labeled A to F, each with a specific arrangement of cone-shaped objects.",
+      "start_char": 141,
+      "end_char": 234,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": []
+      }
+    },
+    {
+      "sentence_id": 2,
+      "text": "The goal is to find out what makes the starred panels (A, C, F) different from the non-starred ones (B, D, E).",
+      "start_char": 235,
+      "end_char": 348,
+      "token_count": 32,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "confidence": "high",
+        "depends_on": [
+          0
+        ]
+      }
+    },
+    {
+      "sentence_id": 3,
+      "text": "First, I'll start by looking at the details provided for each panel.",
+      "start_char": 348,
+      "end_char": 416,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "confidence": "high",
+        "depends_on": [
+          0
+        ]
+      }
+    },
+    {
+      "sentence_id": 4,
+      "text": "I need to analyze the differences in the \"cones\" array for each panel and see what patterns emerge between the starred and non-starred ones.",
+      "start_char": 417,
+      "end_char": 559,
+      "token_count": 30,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "confidence": "high",
+        "depends_on": [
+          0
+        ]
+      }
+    },
+    {
+      "sentence_id": 5,
+      "text": "Let me list out the number of cones each panel has:\n\n- A: 7 cones\n- B: 6 cones\n- C: 7 cones\n- D: 7 cones\n- E: 5 cones\n- F: 7 cones\n\nSo, panels A, C, and F have 7 cones, while B, D, and E have fewer.",
+      "start_char": 559,
+      "end_char": 757,
+      "token_count": 78,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "pre_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": []
+      }
+    },
+    {
+      "sentence_id": 6,
+      "text": "Hmm, that's interesting.",
+      "start_char": 758,
+      "end_char": 782,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          5
+        ]
+      }
+    },
+    {
+      "sentence_id": 7,
+      "text": "Maybe the number of cones isn't the key factor since A and C are starred but D isn't.",
+      "start_char": 783,
+      "end_char": 868,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          5
+        ]
+      }
+    },
+    {
+      "sentence_id": 8,
+      "text": "So, it's not just the count.",
+      "start_char": 869,
+      "end_char": 899,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          5
+        ]
+      }
+    },
+    {
+      "sentence_id": 9,
+      "text": "Next, I'll look at other attributes like size, color, orientation, contacts, and position.",
+      "start_char": 899,
+      "end_char": 991,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "confidence": "high",
+        "depends_on": [
+          8
+        ]
+      }
+    },
+    {
+      "sentence_id": 10,
+      "text": "Starting with Panel A.",
+      "start_char": 991,
+      "end_char": 1013,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "confidence": "high",
+        "depends_on": [
+          8
+        ]
+      }
+    },
+    {
+      "sentence_id": 11,
+      "text": "It has 7 cones, all with various sizes, colors, and orientations.",
+      "start_char": 1014,
+      "end_char": 1079,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": [
+          10
+        ]
+      }
+    },
+    {
+      "sentence_id": 12,
+      "text": "Looking at the first cone, it's large, blue, right tilted, and so on.",
+      "start_char": 1080,
+      "end_char": 1149,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": [
+          11
+        ]
+      }
+    },
+    {
+      "sentence_id": 13,
+      "text": "Similarly, each cone's details are quite intricate.",
+      "start_char": 1150,
+      "end_char": 1203,
+      "token_count": 10,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": [
+          12
+        ]
+      }
+    },
+    {
+      "sentence_id": 14,
+      "text": "Similarly, Panel B has 6 cones.",
+      "start_char": 1203,
+      "end_char": 1234,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": [
+          13
+        ]
+      }
+    },
+    {
+      "sentence_id": 15,
+      "text": "The first cone is medium, red, right tilted, etc.",
+      "start_char": 1235,
+      "end_char": 1284,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": [
+          14
+        ]
+      }
+    },
+    {
+      "sentence_id": 16,
+      "text": "So, the number of cones is different, but I need to see if there's another pattern.",
+      "start_char": 1285,
+      "end_char": 1370,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "confidence": "high",
+        "depends_on": [
+          8
+        ]
+      }
+    },
+    {
+      "sentence_id": 17,
+      "text": "Wait, maybe it's about the color.",
+      "start_char": 1370,
+      "end_char": 1403,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          8
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 18,
+      "text": "Let me check:\n\n- A:",
+      "start_char": 1404,
+      "end_char": 1423,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          17
+        ]
+      }
+    },
+    {
+      "sentence_id": 19,
+      "text": "Cones are a mix of blue, green, red.\n- B: Cones are red, green, blue.\n- C: Red, red, blue, red, blue, red, green.\n- D: Blue, red, red, blue, blue, green, green.\n- E: Blue, green, blue, blue, red.\n- F: Green, red, red, blue, blue, red, green.",
+      "start_char": 1424,
+      "end_char": 1667,
+      "token_count": 88,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          17,
+          18
+        ]
+      }
+    },
+    {
+      "sentence_id": 20,
+      "text": "So, all panels have a mix of colors, so color alone isn't the differentiator.",
+      "start_char": 1667,
+      "end_char": 1746,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          17,
+          18,
+          19
+        ]
+      }
+    },
+    {
+      "sentence_id": 21,
+      "text": "Orientation:\n\n- A: Mix of right tilted, left tilted, upright.\n- B:",
+      "start_char": 1746,
+      "end_char": 1812,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "pre_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          17
+        ]
+      }
+    },
+    {
+      "sentence_id": 22,
+      "text": "Right tilted, upright, upright.\n- C: Right tilted, left tilted, upright.\n- D:",
+      "start_char": 1813,
+      "end_char": 1890,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "pre_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          17,
+          21
+        ]
+      }
+    },
+    {
+      "sentence_id": 23,
+      "text": "Upright, upright, lying right, upright.\n- E: Upside-down, upright, upright, upright.\n- F: Right tilted, lying right, upside-down, upright.",
+      "start_char": 1891,
+      "end_char": 2031,
+      "token_count": 38,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "pre_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          17,
+          21,
+          22
+        ]
+      }
+    },
+    {
+      "sentence_id": 24,
+      "text": "So, orientation varies but isn't the sole factor.",
+      "start_char": 2031,
+      "end_char": 2082,
+      "token_count": 11,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          17,
+          21,
+          22,
+          23
+        ]
+      }
+    },
+    {
+      "sentence_id": 25,
+      "text": "Contacts: This refers to how the cones touch each other or the floor.",
+      "start_char": 2082,
+      "end_char": 2153,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": [
+          16
+        ]
+      }
+    },
+    {
+      "sentence_id": 26,
+      "text": "Looking at the 'contacts' field, it seems that each cone's contact details are unique.",
+      "start_char": 2153,
+      "end_char": 2239,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          25
+        ]
+      }
+    },
+    {
+      "sentence_id": 27,
+      "text": "For example, in A, cone 1 has its right corner on the floor, cone 2's left corner is raised, etc.",
+      "start_char": 2240,
+      "end_char": 2337,
+      "token_count": 28,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": [
+          16
+        ]
+      }
+    },
+    {
+      "sentence_id": 28,
+      "text": "It's hard to see a pattern here.",
+      "start_char": 2338,
+      "end_char": 2372,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "uncertain",
+        "depends_on": [
+          17,
+          21,
+          22,
+          23
+        ]
+      }
+    },
+    {
+      "sentence_id": 29,
+      "text": "Position: The position on the panel, like left corner, right corner, center, etc.",
+      "start_char": 2372,
+      "end_char": 2453,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": [
+          16
+        ]
+      }
+    },
+    {
+      "sentence_id": 30,
+      "text": "Again, varies across panels.",
+      "start_char": 2454,
+      "end_char": 2484,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "uncertain",
+        "depends_on": [
+          17,
+          21,
+          22,
+          23
+        ]
+      }
+    },
+    {
+      "sentence_id": 31,
+      "text": "Wait, maybe it's about the number of cones that are lying on their side versus upright.",
+      "start_char": 2484,
+      "end_char": 2571,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          30
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 32,
+      "text": "Let's count:\n\n- Panel A: How many are lying?",
+      "start_char": 2572,
+      "end_char": 2616,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          31
+        ]
+      }
+    },
+    {
+      "sentence_id": 33,
+      "text": "Cone 1 is right tilted, so lying.",
+      "start_char": 2617,
+      "end_char": 2650,
+      "token_count": 11,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          32
+        ]
+      }
+    },
+    {
+      "sentence_id": 34,
+      "text": "Cone 2 is left tilted, so lying.",
+      "start_char": 2651,
+      "end_char": 2683,
+      "token_count": 11,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          32,
+          33
+        ]
+      }
+    },
+    {
+      "sentence_id": 35,
+      "text": "Cone 3 is upright.",
+      "start_char": 2684,
+      "end_char": 2702,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          32,
+          33,
+          34
+        ]
+      }
+    },
+    {
+      "sentence_id": 36,
+      "text": "Cone 4 is upright.",
+      "start_char": 2703,
+      "end_char": 2721,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          33,
+          34,
+          35
+        ]
+      }
+    },
+    {
+      "sentence_id": 37,
+      "text": "Cone 5 is upright.",
+      "start_char": 2722,
+      "end_char": 2740,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          34,
+          35,
+          36
+        ]
+      }
+    },
+    {
+      "sentence_id": 38,
+      "text": "Cone 6 is upright.",
+      "start_char": 2741,
+      "end_char": 2759,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          35,
+          36,
+          37
+        ]
+      }
+    },
+    {
+      "sentence_id": 39,
+      "text": "Cone 7 is upright.",
+      "start_char": 2760,
+      "end_char": 2778,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          36,
+          37,
+          38
+        ]
+      }
+    },
+    {
+      "sentence_id": 40,
+      "text": "So A has 2 lying cones.\n\n- Panel B: Cone 1 is right tilted (lying), Cone 2 is upright, Cone 3 is upright, Cone 4 is upright, Cone 5 is upright, Cone 6 is upright.",
+      "start_char": 2779,
+      "end_char": 2941,
+      "token_count": 51,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          37,
+          38,
+          39
+        ]
+      }
+    },
+    {
+      "sentence_id": 41,
+      "text": "So, B has 1 lying cone.\n\n- Panel C: Cone 1 is lying, Cone 2 is lying, others are upright.",
+      "start_char": 2942,
+      "end_char": 3031,
+      "token_count": 29,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          38,
+          39,
+          40
+        ]
+      }
+    },
+    {
+      "sentence_id": 42,
+      "text": "So, C has 2 lying cones.\n\n- Panel D: Cone 4 is lying, Cone 5 is lying, Cone 7 is upright.",
+      "start_char": 3032,
+      "end_char": 3121,
+      "token_count": 31,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          39,
+          40,
+          41
+        ]
+      }
+    },
+    {
+      "sentence_id": 43,
+      "text": "Wait, D has 2 lying cones.\n\n- Panel E: Cone 1 is upside-down, so lying, others are upright.",
+      "start_char": 3122,
+      "end_char": 3213,
+      "token_count": 27,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          40,
+          41,
+          42
+        ]
+      }
+    },
+    {
+      "sentence_id": 44,
+      "text": "So, E has 1 lying cone.\n\n- Panel F: Cone 2 is lying, Cone 3 is lying, Cone 4 is upside-down (lying), Cone 6 is upright.",
+      "start_char": 3214,
+      "end_char": 3333,
+      "token_count": 40,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          41,
+          42,
+          43
+        ]
+      }
+    },
+    {
+      "sentence_id": 45,
+      "text": "So, F has 3 lying cones.",
+      "start_char": 3334,
+      "end_char": 3360,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          31,
+          42,
+          43,
+          44
+        ]
+      }
+    },
+    {
+      "sentence_id": 46,
+      "text": "Now, the starred panels (A, C, F) have 2, 2, and 3 lying cones respectively.",
+      "start_char": 3360,
+      "end_char": 3436,
+      "token_count": 26,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          41,
+          42,
+          43,
+          44,
+          45
+        ]
+      }
+    },
+    {
+      "sentence_id": 47,
+      "text": "The non-starred panels (B, D, E) have 1, 2, and 1 lying cones.",
+      "start_char": 3437,
+      "end_char": 3501,
+      "token_count": 25,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ]
+      }
+    },
+    {
+      "sentence_id": 48,
+      "text": "Wait, that's inconsistent.",
+      "start_char": 3501,
+      "end_char": 3527,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "uncertain",
+        "depends_on": [
+          31,
+          43,
+          44,
+          45
+        ]
+      }
+    },
+    {
+      "sentence_id": 49,
+      "text": "A has 2, C has 2, F has 3.",
+      "start_char": 3528,
+      "end_char": 3554,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": []
+      }
+    },
+    {
+      "sentence_id": 50,
+      "text": "B has 1, D has 2, E has 1.",
+      "start_char": 3555,
+      "end_char": 3581,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          49
+        ]
+      }
+    },
+    {
+      "sentence_id": 51,
+      "text": "So, the count of lying cones isn't consistent across starred panels.",
+      "start_char": 3582,
+      "end_char": 3650,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          31,
+          43,
+          44,
+          45
+        ]
+      }
+    },
+    {
+      "sentence_id": 52,
+      "text": "So, that's not the rule.",
+      "start_char": 3651,
+      "end_char": 3677,
+      "token_count": 8,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          43,
+          44,
+          45
+        ]
+      }
+    },
+    {
+      "sentence_id": 53,
+      "text": "Hmm.",
+      "start_char": 3677,
+      "end_char": 3681,
+      "token_count": 2,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "MONITOR",
+        "confidence": "high",
+        "depends_on": [
+          52
+        ]
+      }
+    },
+    {
+      "sentence_id": 54,
+      "text": "Maybe another approach.",
+      "start_char": 3682,
+      "end_char": 3705,
+      "token_count": 4,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "confidence": "high",
+        "depends_on": [
+          53
+        ]
+      }
+    },
+    {
+      "sentence_id": 55,
+      "text": "Let's look for another pattern.",
+      "start_char": 3706,
+      "end_char": 3739,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "confidence": "high",
+        "depends_on": [
+          53
+        ]
+      }
+    },
+    {
+      "sentence_id": 56,
+      "text": "Looking at the 'contacts' and 'position' details, perhaps it's about how many cones are resting on the floor versus being stacked on others.",
+      "start_char": 3739,
+      "end_char": 3881,
+      "token_count": 30,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          31,
+          52
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 31
+      }
+    },
+    {
+      "sentence_id": 57,
+      "text": "In Panel A, many cones are on the floor, some are stacked.",
+      "start_char": 3881,
+      "end_char": 3939,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": [
+          55
+        ]
+      }
+    },
+    {
+      "sentence_id": 58,
+      "text": "Similarly for others.",
+      "start_char": 3940,
+      "end_char": 3963,
+      "token_count": 4,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": [
+          57
+        ]
+      }
+    },
+    {
+      "sentence_id": 59,
+      "text": "Wait, maybe it's about the number of cones that are stacked.",
+      "start_char": 3963,
+      "end_char": 4023,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          31,
+          52
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 31
+      }
+    },
+    {
+      "sentence_id": 60,
+      "text": "Let's count:\n\n- A: Cones 5 stacks on 4, 6 on 4, 7 on 6.",
+      "start_char": 4024,
+      "end_char": 4079,
+      "token_count": 28,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          59
+        ]
+      }
+    },
+    {
+      "sentence_id": 61,
+      "text": "So, 3 cones are stacked.\n\n- B: Cone 2 stacks on 1, 3 on 1, 6 on 5.",
+      "start_char": 4080,
+      "end_char": 4146,
+      "token_count": 31,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          59,
+          60
+        ]
+      }
+    },
+    {
+      "sentence_id": 62,
+      "text": "So, 3 stacked.\n\n- C: Cone 4 stacks on 3, 6 on 5.",
+      "start_char": 4147,
+      "end_char": 4195,
+      "token_count": 23,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          59,
+          60,
+          61
+        ]
+      }
+    },
+    {
+      "sentence_id": 63,
+      "text": "So, 2 stacked.\n\n- D: Cone 4 stacks on 3, 5 on 4, 7 on 6.",
+      "start_char": 4196,
+      "end_char": 4252,
+      "token_count": 29,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          59,
+          60,
+          61,
+          62
+        ]
+      }
+    },
+    {
+      "sentence_id": 64,
+      "text": "So, 3 stacked.\n\n- E: Cone 4 stacks on 3.",
+      "start_char": 4253,
+      "end_char": 4293,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          59,
+          61,
+          62,
+          63
+        ]
+      }
+    },
+    {
+      "sentence_id": 65,
+      "text": "So, 1 stacked.",
+      "start_char": 4294,
+      "end_char": 4310,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          59,
+          62,
+          63,
+          64
+        ]
+      }
+    },
+    {
+      "sentence_id": 66,
+      "text": "- F: Cone 5 stacks on 4, 6 on 5, 7 on 5.",
+      "start_char": 4310,
+      "end_char": 4350,
+      "token_count": 23,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          59,
+          63,
+          64,
+          65
+        ]
+      }
+    },
+    {
+      "sentence_id": 67,
+      "text": "So, 3 stacked.",
+      "start_char": 4351,
+      "end_char": 4367,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          59,
+          64,
+          65,
+          66
+        ]
+      }
+    },
+    {
+      "sentence_id": 68,
+      "text": "So, the number of stacked cones: A=3, B=3, C=2, D=3, E=1, F=3.",
+      "start_char": 4367,
+      "end_char": 4429,
+      "token_count": 32,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          63,
+          64,
+          65,
+          66,
+          67
+        ]
+      }
+    },
+    {
+      "sentence_id": 69,
+      "text": "Not a clear pattern.",
+      "start_char": 4430,
+      "end_char": 4452,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          59,
+          65,
+          66,
+          67
+        ]
+      }
+    },
+    {
+      "sentence_id": 70,
+      "text": "Another thought: Maybe it's about the number of color changes or something else.",
+      "start_char": 4452,
+      "end_char": 4534,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          69
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 71,
+      "text": "Wait, perhaps it's about how the cones are arranged in terms of size.",
+      "start_char": 4534,
+      "end_char": 4603,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          59,
+          69
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 59
+      }
+    },
+    {
+      "sentence_id": 72,
+      "text": "For example, in Panel A, the sizes go from large, medium, small, large, small, large, green.",
+      "start_char": 4604,
+      "end_char": 4696,
+      "token_count": 25,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          71
+        ]
+      }
+    },
+    {
+      "sentence_id": 73,
+      "text": "Not sure.",
+      "start_char": 4697,
+      "end_char": 4708,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "uncertain",
+        "depends_on": [
+          71,
+          72
+        ]
+      }
+    },
+    {
+      "sentence_id": 74,
+      "text": "Alternatively, maybe the rule is that starred panels have a specific number of color changes in their cone colors.",
+      "start_char": 4708,
+      "end_char": 4822,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          73
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 75,
+      "text": "Let's check:\n\n- A: Blue, green, blue, green, red, red, green.",
+      "start_char": 4823,
+      "end_char": 4884,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          74
+        ]
+      }
+    },
+    {
+      "sentence_id": 76,
+      "text": "So, color changes: B-G, G-B, B-G, G-R, R-R,",
+      "start_char": 4885,
+      "end_char": 4928,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          75
+        ]
+      }
+    },
+    {
+      "sentence_id": 77,
+      "text": "R-G. So, 6 changes.\n\n- B: Red, green, green, blue, blue, green.",
+      "start_char": 4929,
+      "end_char": 4992,
+      "token_count": 24,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          75,
+          76
+        ]
+      }
+    },
+    {
+      "sentence_id": 78,
+      "text": "Changes: R-G, G-G, G-B, B-G, G-G.",
+      "start_char": 4993,
+      "end_char": 5026,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          75,
+          76,
+          77
+        ]
+      }
+    },
+    {
+      "sentence_id": 79,
+      "text": "So, 4 changes.\n\n- C: Red, red, blue, blue, red, blue, green.",
+      "start_char": 5027,
+      "end_char": 5087,
+      "token_count": 23,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          76,
+          77,
+          78
+        ]
+      }
+    },
+    {
+      "sentence_id": 80,
+      "text": "Changes: R-R (no change), R-B, B-B (no), B-R, R-B, B-G.",
+      "start_char": 5088,
+      "end_char": 5143,
+      "token_count": 25,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          77,
+          78,
+          79
+        ]
+      }
+    },
+    {
+      "sentence_id": 81,
+      "text": "So, 4 changes.\n\n- D: Blue, red, red, blue, blue, green, green.",
+      "start_char": 5144,
+      "end_char": 5206,
+      "token_count": 23,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          78,
+          79,
+          80
+        ]
+      }
+    },
+    {
+      "sentence_id": 82,
+      "text": "Changes: B-R, R-R, R-B, B-B, B-G, G-G.",
+      "start_char": 5207,
+      "end_char": 5245,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          79,
+          80,
+          81
+        ]
+      }
+    },
+    {
+      "sentence_id": 83,
+      "text": "So, 4 changes.\n\n- E: Blue, green, blue, blue, red.",
+      "start_char": 5246,
+      "end_char": 5296,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          80,
+          81,
+          82
+        ]
+      }
+    },
+    {
+      "sentence_id": 84,
+      "text": "Changes: B-G, G-B, B-B, B-R. So, 3 changes.",
+      "start_char": 5297,
+      "end_char": 5342,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          81,
+          82,
+          83
+        ]
+      }
+    },
+    {
+      "sentence_id": 85,
+      "text": "- F: Green, red, red, blue, blue, red, green.",
+      "start_char": 5342,
+      "end_char": 5387,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          82,
+          83,
+          84
+        ]
+      }
+    },
+    {
+      "sentence_id": 86,
+      "text": "Changes: G-R, R-R, R-B, B-B, B-R,",
+      "start_char": 5388,
+      "end_char": 5421,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          83,
+          84,
+          85
+        ]
+      }
+    },
+    {
+      "sentence_id": 87,
+      "text": "R-G. So, 5 changes.",
+      "start_char": 5422,
+      "end_char": 5443,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          74,
+          84,
+          85,
+          86
+        ]
+      }
+    },
+    {
+      "sentence_id": 88,
+      "text": "Hmm, so A=6, B=4, C=4, D=4, E=3, F=5.",
+      "start_char": 5443,
+      "end_char": 5480,
+      "token_count": 27,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          83,
+          84,
+          85,
+          86,
+          87
+        ]
+      }
+    },
+    {
+      "sentence_id": 89,
+      "text": "Not a clear pattern.",
+      "start_char": 5481,
+      "end_char": 5503,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          74,
+          85,
+          86,
+          87
+        ]
+      }
+    },
+    {
+      "sentence_id": 90,
+      "text": "Another angle: Maybe the number of color layers.",
+      "start_char": 5503,
+      "end_char": 5551,
+      "token_count": 10,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          89
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 91,
+      "text": "For example, how many different colors are present.",
+      "start_char": 5552,
+      "end_char": 5605,
+      "token_count": 10,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          89
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 92,
+      "text": "- A:",
+      "start_char": 5605,
+      "end_char": 5609,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          91
+        ]
+      }
+    },
+    {
+      "sentence_id": 93,
+      "text": "Blue, green, red.",
+      "start_char": 5610,
+      "end_char": 5627,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          91,
+          92
+        ]
+      }
+    },
+    {
+      "sentence_id": 94,
+      "text": "Three colors.\n\n- B: Red, green, blue.",
+      "start_char": 5628,
+      "end_char": 5665,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          91,
+          92,
+          93
+        ]
+      }
+    },
+    {
+      "sentence_id": 95,
+      "text": "Three colors.\n\n- C: Red, blue, green.",
+      "start_char": 5666,
+      "end_char": 5703,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          91,
+          92,
+          93,
+          94
+        ]
+      }
+    },
+    {
+      "sentence_id": 96,
+      "text": "Three colors.\n\n- D: Blue, red, green.",
+      "start_char": 5704,
+      "end_char": 5741,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          91,
+          93,
+          94,
+          95
+        ]
+      }
+    },
+    {
+      "sentence_id": 97,
+      "text": "Three colors.\n\n- E: Blue, green, red.",
+      "start_char": 5742,
+      "end_char": 5779,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          91,
+          94,
+          95,
+          96
+        ]
+      }
+    },
+    {
+      "sentence_id": 98,
+      "text": "Three colors.\n\n- F: Green, red, blue.",
+      "start_char": 5780,
+      "end_char": 5817,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          91,
+          95,
+          96,
+          97
+        ]
+      }
+    },
+    {
+      "sentence_id": 99,
+      "text": "Three colors.",
+      "start_char": 5818,
+      "end_char": 5833,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          91,
+          96,
+          97,
+          98
+        ]
+      }
+    },
+    {
+      "sentence_id": 100,
+      "text": "So, all panels have three colors.",
+      "start_char": 5833,
+      "end_char": 5866,
+      "token_count": 8,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          95,
+          96,
+          97,
+          98,
+          99
+        ]
+      }
+    },
+    {
+      "sentence_id": 101,
+      "text": "So, that's not the rule.",
+      "start_char": 5867,
+      "end_char": 5893,
+      "token_count": 8,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          91,
+          97,
+          98,
+          99
+        ]
+      }
+    },
+    {
+      "sentence_id": 102,
+      "text": "Wait, maybe the order of colors.",
+      "start_char": 5893,
+      "end_char": 5925,
+      "token_count": 8,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          101
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 103,
+      "text": "For example, starting color.\n\n- A: Starts with Blue.\n\n- B: Starts with Red.\n\n- C: Starts with Red.\n\n- D: Starts with Blue.\n\n- E: Starts with Blue.\n\n- F: Starts with Green.",
+      "start_char": 5926,
+      "end_char": 6099,
+      "token_count": 48,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          102
+        ]
+      }
+    },
+    {
+      "sentence_id": 104,
+      "text": "So, not consistent.",
+      "start_char": 6099,
+      "end_char": 6120,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          102,
+          103
+        ]
+      }
+    },
+    {
+      "sentence_id": 105,
+      "text": "Alternatively, perhaps it's about the number of color transitions, but earlier that didn't show a pattern.",
+      "start_char": 6120,
+      "end_char": 6228,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "MONITOR",
+        "confidence": "high",
+        "depends_on": [
+          104
+        ]
+      }
+    },
+    {
+      "sentence_id": 106,
+      "text": "Wait, maybe it's about the number of small cones.",
+      "start_char": 6228,
+      "end_char": 6277,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          59,
+          104
+        ],
+        "hypo_status": "repeated",
+        "hypo_antecedent_sid": 59
+      }
+    },
+    {
+      "sentence_id": 107,
+      "text": "Let's see:\n\n- A: Small: 2 cones (4 and 5).\n\n- B: Small: 1 cone (3).\n\n- C: Small: 2 cones (3 and 4).\n\n- D: Small: 1 cone (4).\n\n- E: Small: 1 cone (4).\n\n- F: Small: 2 cones (2 and 4).",
+      "start_char": 6278,
+      "end_char": 6461,
+      "token_count": 79,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          106
+        ]
+      }
+    },
+    {
+      "sentence_id": 108,
+      "text": "So, A=2, B=1, C=2, D=1, E=1, F=2.",
+      "start_char": 6461,
+      "end_char": 6494,
+      "token_count": 26,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          107
+        ]
+      }
+    },
+    {
+      "sentence_id": 109,
+      "text": "Not a clear pattern.",
+      "start_char": 6495,
+      "end_char": 6517,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          106,
+          107
+        ]
+      }
+    },
+    {
+      "sentence_id": 110,
+      "text": "Hmm, maybe the number of large cones.\n\n- A:",
+      "start_char": 6517,
+      "end_char": 6560,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          106,
+          109
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 106
+      }
+    },
+    {
+      "sentence_id": 111,
+      "text": "Large: 3 cones (1,6,7).\n\n- B: Large: 2 cones (1,2).\n\n- C: Large: 2 cones (1,7).\n\n- D: Large: 2 cones (1,2).\n\n- E: Large: 1 cone (2).\n\n- F: Large: 2 cones (1,6).",
+      "start_char": 6561,
+      "end_char": 6723,
+      "token_count": 75,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          110
+        ]
+      }
+    },
+    {
+      "sentence_id": 112,
+      "text": "So, A=3, B=2, C=2, D=2, E=1, F=2.",
+      "start_char": 6723,
+      "end_char": 6756,
+      "token_count": 26,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          111
+        ]
+      }
+    },
+    {
+      "sentence_id": 113,
+      "text": "Not consistent.",
+      "start_char": 6757,
+      "end_char": 6774,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          110,
+          111
+        ]
+      }
+    },
+    {
+      "sentence_id": 114,
+      "text": "Another idea: Maybe the number of cones that are 'stacked' on others.",
+      "start_char": 6774,
+      "end_char": 6843,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          59,
+          113
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 59
+      }
+    },
+    {
+      "sentence_id": 115,
+      "text": "Let's see:\n\n- A: 3 cones stacked (5 on4, 6 on4,7 on6).\n\n- B: 3 cones stacked (2 on1,3 on1,6 on5).\n\n- C: 2 cones stacked (4 on3,6 on5).\n\n- D: 3 cones stacked (4 on3,5 on4,7 on6).\n\n- E: 1 cone stacked (4 on3).\n\n- F: 3 cones stacked (5 on4,6 on5,7 on5).",
+      "start_char": 6844,
+      "end_char": 7096,
+      "token_count": 113,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          114
+        ]
+      }
+    },
+    {
+      "sentence_id": 116,
+      "text": "So, A=3, B=3, C=2, D=3, E=1, F=3.",
+      "start_char": 7096,
+      "end_char": 7129,
+      "token_count": 26,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          115
+        ]
+      }
+    },
+    {
+      "sentence_id": 117,
+      "text": "Still not a clear pattern.",
+      "start_char": 7130,
+      "end_char": 7158,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          114,
+          115
+        ]
+      }
+    },
+    {
+      "sentence_id": 118,
+      "text": "Wait, maybe it's about the number of 'stacks' in a way that the topmost cone is a certain color.",
+      "start_char": 7158,
+      "end_char": 7256,
+      "token_count": 26,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          59,
+          117
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 59
+      }
+    },
+    {
+      "sentence_id": 119,
+      "text": "Looking at the topmost cones:\n\n- A: Cone7 is green.\n\n- B: Cone6 is green.\n\n- C: Cone7 is green.\n\n- D: Cone7 is green.",
+      "start_char": 7256,
+      "end_char": 7375,
+      "token_count": 39,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          118
+        ]
+      }
+    },
+    {
+      "sentence_id": 120,
+      "text": "- E: Cone5 is red.\n\n- F: Cone7 is green.",
+      "start_char": 7375,
+      "end_char": 7417,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          118,
+          119
+        ]
+      }
+    },
+    {
+      "sentence_id": 121,
+      "text": "So, A, B, C, D, F have green as topmost, E has red.",
+      "start_char": 7417,
+      "end_char": 7468,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          119,
+          120
+        ]
+      }
+    },
+    {
+      "sentence_id": 122,
+      "text": "Maybe the rule is that if the topmost cone is green, it's a star?",
+      "start_char": 7469,
+      "end_char": 7534,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          117
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 123,
+      "text": "But E has red, which isn't a star, and D is a non-starred panel but also has green on top.",
+      "start_char": 7535,
+      "end_char": 7625,
+      "token_count": 26,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          122
+        ]
+      }
+    },
+    {
+      "sentence_id": 124,
+      "text": "So, that doesn't fit.",
+      "start_char": 7626,
+      "end_char": 7649,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          122
+        ]
+      }
+    },
+    {
+      "sentence_id": 125,
+      "text": "Alternatively, maybe the topmost cone's color relates to something else.",
+      "start_char": 7649,
+      "end_char": 7723,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          124
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 126,
+      "text": "Wait, perhaps the number of colors used in the 'contacts' description.",
+      "start_char": 7723,
+      "end_char": 7793,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          124
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 127,
+      "text": "Let me see:\n\nFor each cone, the 'contacts' describe how they touch others or the floor.",
+      "start_char": 7794,
+      "end_char": 7881,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "confidence": "high",
+        "depends_on": []
+      }
+    },
+    {
+      "sentence_id": 128,
+      "text": "Maybe the number of contacts is a factor.",
+      "start_char": 7882,
+      "end_char": 7925,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          124
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 129,
+      "text": "Alternatively, perhaps it's about the number of times 'stacks on' appears in the contacts.",
+      "start_char": 7925,
+      "end_char": 8017,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          124
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 130,
+      "text": "Looking at 'stacks on':\n\n- A: 3 times (5 on4,6 on4,7 on6).\n\n- B: 3 times (2 on1,3 on1,6 on5).\n\n- C: 2 times (4 on3,6 on5).\n\n- D: 3 times (4 on3,5 on4,7 on6).\n\n- E: 1 time (4 on3).\n\n- F: 3 times (5 on4,6 on5,7 on5).",
+      "start_char": 8017,
+      "end_char": 8233,
+      "token_count": 109,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          129
+        ]
+      }
+    },
+    {
+      "sentence_id": 131,
+      "text": "So, A, B, D, F have 3, B=3, C=2, E=1.",
+      "start_char": 8233,
+      "end_char": 8270,
+      "token_count": 25,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          130
+        ]
+      }
+    },
+    {
+      "sentence_id": 132,
+      "text": "So, not consistent.",
+      "start_char": 8271,
+      "end_char": 8292,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          129,
+          130
+        ]
+      }
+    },
+    {
+      "sentence_id": 133,
+      "text": "Alternatively, maybe the number of 'stacks on' is related, but it's unclear.",
+      "start_char": 8292,
+      "end_char": 8370,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "MONITOR",
+        "confidence": "high",
+        "depends_on": [
+          132
+        ]
+      }
+    },
+    {
+      "sentence_id": 134,
+      "text": "Another angle: Maybe the number of cones that are the first or last in the list.",
+      "start_char": 8370,
+      "end_char": 8452,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          110,
+          132
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 110
+      }
+    },
+    {
+      "sentence_id": 135,
+      "text": "In each panel, the first cone and the last cone's properties.",
+      "start_char": 8452,
+      "end_char": 8515,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          134
+        ]
+      }
+    },
+    {
+      "sentence_id": 136,
+      "text": "Looking at the first cone:\n\n- A: Large, Blue, right tilted.\n\n- B: Medium, Red, right tilted.\n\n- C: Large, Red, lying right.\n\n- D: Large, Blue, upright.\n\n- E: Medium, Blue, upside-down.",
+      "start_char": 8515,
+      "end_char": 8701,
+      "token_count": 55,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          135
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 137,
+      "text": "- F: Large, Green, upright.",
+      "start_char": 8701,
+      "end_char": 8730,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          136
+        ]
+      }
+    },
+    {
+      "sentence_id": 138,
+      "text": "So, first cone colors: A=Blue, B=Red, C=Red, D=Blue, E=Blue, F=Green.",
+      "start_char": 8730,
+      "end_char": 8801,
+      "token_count": 30,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          137
+        ]
+      }
+    },
+    {
+      "sentence_id": 139,
+      "text": "Not a clear pattern.",
+      "start_char": 8801,
+      "end_char": 8823,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          136,
+          137
+        ]
+      }
+    },
+    {
+      "sentence_id": 140,
+      "text": "Last cone:\n\n- A: Large, Green, upright.\n\n- B: Large, Green, upright.\n\n- C: Medium, Green, upright.\n\n- D: Medium, Green, upright.\n\n- E: Medium, Red, upright.\n\n- F: Medium, Green, upright.",
+      "start_char": 8823,
+      "end_char": 9011,
+      "token_count": 57,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "pre_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          136
+        ]
+      }
+    },
+    {
+      "sentence_id": 141,
+      "text": "So, A, B, C, D, F have green as last cone; E has red.",
+      "start_char": 9011,
+      "end_char": 9064,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          140
+        ]
+      }
+    },
+    {
+      "sentence_id": 142,
+      "text": "So, E is different, but it's a non-starred panel, so that might not help.",
+      "start_char": 9065,
+      "end_char": 9140,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "uncertain",
+        "depends_on": [
+          136,
+          137,
+          140
+        ]
+      }
+    },
+    {
+      "sentence_id": 143,
+      "text": "Wait, maybe the number of 'lying' cones.",
+      "start_char": 9140,
+      "end_char": 9180,
+      "token_count": 11,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          106,
+          142
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 106
+      }
+    },
+    {
+      "sentence_id": 144,
+      "text": "Earlier, I saw that:\n\n- A: 2 lying cones.\n\n- B:",
+      "start_char": 9181,
+      "end_char": 9228,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          143
+        ]
+      }
+    },
+    {
+      "sentence_id": 145,
+      "text": "1 lying cone.\n\n- C: 2 lying cones.\n\n- D: 2 lying cones.\n\n- E: 1 lying cone.\n\n- F: 3 lying cones.",
+      "start_char": 9229,
+      "end_char": 9327,
+      "token_count": 36,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          143,
+          144
+        ]
+      }
+    },
+    {
+      "sentence_id": 146,
+      "text": "So, the number of lying cones is 2,1,2,2,1,3.",
+      "start_char": 9327,
+      "end_char": 9372,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          144,
+          145
+        ]
+      }
+    },
+    {
+      "sentence_id": 147,
+      "text": "The starred panels A, C, F have 2,2,3 lying cones.",
+      "start_char": 9373,
+      "end_char": 9423,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          144,
+          145,
+          146
+        ]
+      }
+    },
+    {
+      "sentence_id": 148,
+      "text": "The non-starred panels B, D, E have 1,2,1.",
+      "start_char": 9424,
+      "end_char": 9466,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          144,
+          145,
+          146,
+          147
+        ]
+      }
+    },
+    {
+      "sentence_id": 149,
+      "text": "So, maybe the rule is that if the number of lying cones is more than 1, it's a star?",
+      "start_char": 9467,
+      "end_char": 9551,
+      "token_count": 24,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          122,
+          142
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 122
+      }
+    },
+    {
+      "sentence_id": 150,
+      "text": "But D has 2 lying cones but isn't starred.",
+      "start_char": 9552,
+      "end_char": 9594,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          149
+        ]
+      }
+    },
+    {
+      "sentence_id": 151,
+      "text": "So, that doesn't fit.",
+      "start_char": 9595,
+      "end_char": 9618,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          149
+        ]
+      }
+    },
+    {
+      "sentence_id": 152,
+      "text": "Wait, maybe it's about the number of 'stacked' cones.",
+      "start_char": 9618,
+      "end_char": 9671,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          59,
+          151
+        ],
+        "hypo_status": "repeated",
+        "hypo_antecedent_sid": 59
+      }
+    },
+    {
+      "sentence_id": 153,
+      "text": "Let me see:\n\n- A: 3 stacked.\n\n- B: 3.\n\n- C: 2.\n\n- D: 3.\n\n- E:1.\n\n- F:3.",
+      "start_char": 9672,
+      "end_char": 9745,
+      "token_count": 39,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          152
+        ]
+      }
+    },
+    {
+      "sentence_id": 154,
+      "text": "So, A, B, D, F have 3, which are all starred except D is non-starred.",
+      "start_char": 9745,
+      "end_char": 9814,
+      "token_count": 24,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          153
+        ]
+      }
+    },
+    {
+      "sentence_id": 155,
+      "text": "So, that doesn't fit.",
+      "start_char": 9815,
+      "end_char": 9838,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          152,
+          153
+        ]
+      }
+    },
+    {
+      "sentence_id": 156,
+      "text": "Wait, perhaps the number of color changes in the 'size' sequence.",
+      "start_char": 9838,
+      "end_char": 9903,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          70,
+          155
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 70
+      }
+    },
+    {
+      "sentence_id": 157,
+      "text": "For example, in Panel A: sizes are Large, Medium, Small, Large, Small, Large, Green.",
+      "start_char": 9904,
+      "end_char": 9988,
+      "token_count": 23,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156
+        ]
+      }
+    },
+    {
+      "sentence_id": 158,
+      "text": "So, changes from Large to Medium, Medium to Small, Small to Large, Large to Small, Small to Large.",
+      "start_char": 9989,
+      "end_char": 10087,
+      "token_count": 24,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          157
+        ]
+      }
+    },
+    {
+      "sentence_id": 159,
+      "text": "That's 5 changes.",
+      "start_char": 10088,
+      "end_char": 10107,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          157,
+          158
+        ]
+      }
+    },
+    {
+      "sentence_id": 160,
+      "text": "Panel B: Medium, Medium, Small, Large, Large, Large.",
+      "start_char": 10107,
+      "end_char": 10159,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          157,
+          158,
+          159
+        ]
+      }
+    },
+    {
+      "sentence_id": 161,
+      "text": "Changes: Medium to Small, Small to Large.",
+      "start_char": 10160,
+      "end_char": 10201,
+      "token_count": 10,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          158,
+          159,
+          160
+        ]
+      }
+    },
+    {
+      "sentence_id": 162,
+      "text": "So, 2 changes.",
+      "start_char": 10202,
+      "end_char": 10218,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          159,
+          160,
+          161
+        ]
+      }
+    },
+    {
+      "sentence_id": 163,
+      "text": "Panel C: Large, Small, Small, Medium, Medium, Small, Large.",
+      "start_char": 10218,
+      "end_char": 10277,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          160,
+          161,
+          162
+        ]
+      }
+    },
+    {
+      "sentence_id": 164,
+      "text": "Changes: L-S, S-M, M-M, M-S, S-L.",
+      "start_char": 10278,
+      "end_char": 10311,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          161,
+          162,
+          163
+        ]
+      }
+    },
+    {
+      "sentence_id": 165,
+      "text": "So, 4 changes.",
+      "start_char": 10312,
+      "end_char": 10328,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          162,
+          163,
+          164
+        ]
+      }
+    },
+    {
+      "sentence_id": 166,
+      "text": "Panel D: Large, Large, Medium, Medium, Small, Large, Large.",
+      "start_char": 10328,
+      "end_char": 10387,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          163,
+          164,
+          165
+        ]
+      }
+    },
+    {
+      "sentence_id": 167,
+      "text": "Changes: L-L, L-M, M-M, M-S, S-L.",
+      "start_char": 10388,
+      "end_char": 10421,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          164,
+          165,
+          166
+        ]
+      }
+    },
+    {
+      "sentence_id": 168,
+      "text": "So, 4 changes.",
+      "start_char": 10422,
+      "end_char": 10438,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          165,
+          166,
+          167
+        ]
+      }
+    },
+    {
+      "sentence_id": 169,
+      "text": "Panel E: Medium, Large, Large, Small, Large.",
+      "start_char": 10438,
+      "end_char": 10482,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          166,
+          167,
+          168
+        ]
+      }
+    },
+    {
+      "sentence_id": 170,
+      "text": "Changes: M-L, L-L, L-S, S-L.",
+      "start_char": 10483,
+      "end_char": 10511,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          167,
+          168,
+          169
+        ]
+      }
+    },
+    {
+      "sentence_id": 171,
+      "text": "So, 3 changes.",
+      "start_char": 10512,
+      "end_char": 10528,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          168,
+          169,
+          170
+        ]
+      }
+    },
+    {
+      "sentence_id": 172,
+      "text": "Panel F: Large, Small, Small, Medium, Large, Large, Large.",
+      "start_char": 10528,
+      "end_char": 10586,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          169,
+          170,
+          171
+        ]
+      }
+    },
+    {
+      "sentence_id": 173,
+      "text": "Changes: L-S, S-M, M-L, L-L. So, 3 changes.",
+      "start_char": 10587,
+      "end_char": 10632,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          156,
+          170,
+          171,
+          172
+        ]
+      }
+    },
+    {
+      "sentence_id": 174,
+      "text": "So, A=5, B=2, C=4, D=4, E=3, F=3.",
+      "start_char": 10632,
+      "end_char": 10665,
+      "token_count": 26,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          169,
+          170,
+          171,
+          172,
+          173
+        ]
+      }
+    },
+    {
+      "sentence_id": 175,
+      "text": "No clear pattern.",
+      "start_char": 10666,
+      "end_char": 10685,
+      "token_count": 4,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          156,
+          171,
+          172,
+          173
+        ]
+      }
+    },
+    {
+      "sentence_id": 176,
+      "text": "Another idea: Maybe it's about the number of times a color is used.",
+      "start_char": 10685,
+      "end_char": 10752,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          70,
+          175
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 70
+      }
+    },
+    {
+      "sentence_id": 177,
+      "text": "For example:\n\n- A:",
+      "start_char": 10753,
+      "end_char": 10771,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          176
+        ]
+      }
+    },
+    {
+      "sentence_id": 178,
+      "text": "Blue, Green, Red.",
+      "start_char": 10772,
+      "end_char": 10789,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          176,
+          177
+        ]
+      }
+    },
+    {
+      "sentence_id": 179,
+      "text": "Each used multiple times.\n\n- B: Red, Green, Blue.",
+      "start_char": 10790,
+      "end_char": 10839,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          176,
+          177,
+          178
+        ]
+      }
+    },
+    {
+      "sentence_id": 180,
+      "text": "Similarly.\n\n- C: Red, Blue, Green.\n\n- D: Blue, Red, Green.\n\n- E: Blue, Green, Red.\n\n- F: Green, Red, Blue.",
+      "start_char": 10840,
+      "end_char": 10948,
+      "token_count": 38,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          176,
+          177,
+          178,
+          179
+        ]
+      }
+    },
+    {
+      "sentence_id": 181,
+      "text": "So, all panels use three colors.",
+      "start_char": 10948,
+      "end_char": 10980,
+      "token_count": 8,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          177,
+          178,
+          179,
+          180
+        ]
+      }
+    },
+    {
+      "sentence_id": 182,
+      "text": "Not helpful.",
+      "start_char": 10981,
+      "end_char": 10995,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          176,
+          178,
+          179,
+          180
+        ]
+      }
+    },
+    {
+      "sentence_id": 183,
+      "text": "Wait, maybe the rule is that the number of 'stacks on' is equal to the number of stars.",
+      "start_char": 10995,
+      "end_char": 11082,
+      "token_count": 23,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          182
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 184,
+      "text": "But A=3, B=3, C=2, D=3, E=1, F=3.",
+      "start_char": 11083,
+      "end_char": 11116,
+      "token_count": 25,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          183
+        ]
+      }
+    },
+    {
+      "sentence_id": 185,
+      "text": "So, A, C, F have stars but C has 2, which doesn't match.",
+      "start_char": 11117,
+      "end_char": 11173,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          183,
+          184
+        ]
+      }
+    },
+    {
+      "sentence_id": 186,
+      "text": "So, that doesn't fit.",
+      "start_char": 11174,
+      "end_char": 11197,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          183,
+          184
+        ]
+      }
+    },
+    {
+      "sentence_id": 187,
+      "text": "Another approach: Maybe it's about the number of 'stacks on' being odd or even.",
+      "start_char": 11197,
+      "end_char": 11276,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          186
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 188,
+      "text": "But A=3, B=3, C=2, D=3, E=1, F=3.",
+      "start_char": 11277,
+      "end_char": 11310,
+      "token_count": 25,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          187
+        ]
+      }
+    },
+    {
+      "sentence_id": 189,
+      "text": "So, A, B, C, D, F have odd numbers, E has 1.",
+      "start_char": 11311,
+      "end_char": 11355,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          188
+        ]
+      }
+    },
+    {
+      "sentence_id": 190,
+      "text": "But A, C, F are stars, B, D are non-starred, and E is non-starred.",
+      "start_char": 11356,
+      "end_char": 11422,
+      "token_count": 24,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          188,
+          189
+        ]
+      }
+    },
+    {
+      "sentence_id": 191,
+      "text": "So, E has 1, which is odd, but it's non-starred.",
+      "start_char": 11423,
+      "end_char": 11471,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          187,
+          188
+        ]
+      }
+    },
+    {
+      "sentence_id": 192,
+      "text": "So, that doesn't help.",
+      "start_char": 11472,
+      "end_char": 11496,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          187,
+          188
+        ]
+      }
+    },
+    {
+      "sentence_id": 193,
+      "text": "Wait, maybe it's about the number of 'stacks on' being a multiple of 3. A=3, B=3, C=2, D=3, E=1, F=3.",
+      "start_char": 11496,
+      "end_char": 11597,
+      "token_count": 45,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          192
+        ],
+        "hypo_status": "novel"
+      }
+    },
+    {
+      "sentence_id": 194,
+      "text": "So, A, B, D, F have multiples of 3. C=2, E=1.",
+      "start_char": 11598,
+      "end_char": 11643,
+      "token_count": 23,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          193
+        ]
+      }
+    },
+    {
+      "sentence_id": 195,
+      "text": "So, A, B, D, F are stars, but C is a star with 2, which isn't a multiple of 3.",
+      "start_char": 11644,
+      "end_char": 11722,
+      "token_count": 30,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          193
+        ]
+      }
+    },
+    {
+      "sentence_id": 196,
+      "text": "So, that doesn't fit.",
+      "start_char": 11723,
+      "end_char": 11746,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          193
+        ]
+      }
+    },
+    {
+      "sentence_id": 197,
+      "text": "Wait, perhaps the rule is that the number of 'stacks on' equals the number of stars.",
+      "start_char": 11746,
+      "end_char": 11830,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          183,
+          196
+        ],
+        "hypo_status": "repeated",
+        "hypo_antecedent_sid": 183
+      }
+    },
+    {
+      "sentence_id": 198,
+      "text": "But A=3, C=2, F=3.",
+      "start_char": 11831,
+      "end_char": 11849,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          197
+        ]
+      }
+    },
+    {
+      "sentence_id": 199,
+      "text": "So, A and F have 3, C has 2.",
+      "start_char": 11850,
+      "end_char": 11878,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          198
+        ]
+      }
+    },
+    {
+      "sentence_id": 200,
+      "text": "But they are all stars.",
+      "start_char": 11879,
+      "end_char": 11902,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          197,
+          198
+        ]
+      }
+    },
+    {
+      "sentence_id": 201,
+      "text": "Not consistent.",
+      "start_char": 11903,
+      "end_char": 11920,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          197,
+          198
+        ]
+      }
+    },
+    {
+      "sentence_id": 202,
+      "text": "Another angle: Maybe the number of 'stacks on' corresponds to something else, but I'm stuck.",
+      "start_char": 11920,
+      "end_char": 12014,
+      "token_count": 22,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "MONITOR",
+        "confidence": "high",
+        "depends_on": [
+          201
+        ]
+      }
+    },
+    {
+      "sentence_id": 203,
+      "text": "Let me think differently.",
+      "start_char": 12014,
+      "end_char": 12039,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "confidence": "high",
+        "depends_on": [
+          202
+        ]
+      }
+    },
+    {
+      "sentence_id": 204,
+      "text": "Maybe it's about the number of 'stacks on' being the same across all panels.",
+      "start_char": 12040,
+      "end_char": 12116,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          129,
+          201
+        ],
+        "hypo_status": "revised",
+        "hypo_antecedent_sid": 129
+      }
+    },
+    {
+      "sentence_id": 205,
+      "text": "But no, they vary.",
+      "start_char": 12117,
+      "end_char": 12137,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          204
+        ]
+      }
+    },
+    {
+      "sentence_id": 206,
+      "text": "Wait, maybe it's about the number of 'stacks on' in the topmost cone.",
+      "start_char": 12137,
+      "end_char": 12206,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          118,
+          205
+        ],
+        "hypo_status": "repeated",
+        "hypo_antecedent_sid": 118
+      }
+    },
+    {
+      "sentence_id": 207,
+      "text": "For example, in A, the topmost is 7, which stacks on 6.",
+      "start_char": 12207,
+      "end_char": 12262,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          206
+        ]
+      }
+    },
+    {
+      "sentence_id": 208,
+      "text": "In B, topmost is 6, which stacks on 5.",
+      "start_char": 12263,
+      "end_char": 12301,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          206,
+          207
+        ]
+      }
+    },
+    {
+      "sentence_id": 209,
+      "text": "In C, topmost is7, stacks on5.",
+      "start_char": 12302,
+      "end_char": 12332,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          206,
+          207,
+          208
+        ]
+      }
+    },
+    {
+      "sentence_id": 210,
+      "text": "In D, topmost is7, stacks on6.",
+      "start_char": 12333,
+      "end_char": 12363,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          206,
+          207,
+          208,
+          209
+        ]
+      }
+    },
+    {
+      "sentence_id": 211,
+      "text": "In E, topmost is5, which stacks on3.",
+      "start_char": 12364,
+      "end_char": 12400,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          206,
+          208,
+          209,
+          210
+        ]
+      }
+    },
+    {
+      "sentence_id": 212,
+      "text": "In F, topmost is7, stacks on5.",
+      "start_char": 12401,
+      "end_char": 12433,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          206,
+          209,
+          210,
+          211
+        ]
+      }
+    },
+    {
+      "sentence_id": 213,
+      "text": "So, A=6, B=5, C=5, D=6, E=3, F=5.",
+      "start_char": 12433,
+      "end_char": 12466,
+      "token_count": 26,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "confidence": "high",
+        "depends_on": [
+          208,
+          209,
+          210,
+          211,
+          212
+        ]
+      }
+    },
+    {
+      "sentence_id": 214,
+      "text": "Not a pattern.",
+      "start_char": 12467,
+      "end_char": 12483,
+      "token_count": 4,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+        "confidence": "high",
+        "judgement": "reject",
+        "depends_on": [
+          206,
+          210,
+          211,
+          212
+        ]
+      }
+    },
+    {
+      "sentence_id": 215,
+      "text": "Alternatively, maybe it's about the number of 'stacks on' in the first cone.",
+      "start_char": 12483,
+      "end_char": 12559,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "confidence": "high",
+        "depends_on": [
+          206,
+          214
+        ],
+        "hypo_status": "repeated",
+        "hypo_antecedent_sid": 206
+      }
+    },
+    {
+      "sentence_id": 216,
+      "text": "For example, A's first cone is1, which doesn't stack on anyone.",
+      "start_char": 12560,
+      "end_char": 12623,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "confidence": "high",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          215
+        ]
+      }
+    }
+  ],
+  "segmentation_metadata": {
+    "total_sentences": 218,
+    "segmentation_method": "spacy_en_core_web_sm",
+    "tokenizer": "DeepSeek-R1-Distill-Llama-8B"
+  },
+  "preprocessing": {
+    "version": "1.0",
+    "timestamp": "2026-03-10T00:09:58Z",
+    "original_sentence_count": 218,
+    "cleaned_sentence_count": 217,
+    "fragments_merged": 0,
+    "truncated_finals_removed": 1,
+    "manual_merges_applied": 0,
+    "id_mapping": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10,
+      "11": 11,
+      "12": 12,
+      "13": 13,
+      "14": 14,
+      "15": 15,
+      "16": 16,
+      "17": 17,
+      "18": 18,
+      "19": 19,
+      "20": 20,
+      "21": 21,
+      "22": 22,
+      "23": 23,
+      "24": 24,
+      "25": 25,
+      "26": 26,
+      "27": 27,
+      "28": 28,
+      "29": 29,
+      "30": 30,
+      "31": 31,
+      "32": 32,
+      "33": 33,
+      "34": 34,
+      "35": 35,
+      "36": 36,
+      "37": 37,
+      "38": 38,
+      "39": 39,
+      "40": 40,
+      "41": 41,
+      "42": 42,
+      "43": 43,
+      "44": 44,
+      "45": 45,
+      "46": 46,
+      "47": 47,
+      "48": 48,
+      "49": 49,
+      "50": 50,
+      "51": 51,
+      "52": 52,
+      "53": 53,
+      "54": 54,
+      "55": 55,
+      "56": 56,
+      "57": 57,
+      "58": 58,
+      "59": 59,
+      "60": 60,
+      "61": 61,
+      "62": 62,
+      "63": 63,
+      "64": 64,
+      "65": 65,
+      "66": 66,
+      "67": 67,
+      "68": 68,
+      "69": 69,
+      "70": 70,
+      "71": 71,
+      "72": 72,
+      "73": 73,
+      "74": 74,
+      "75": 75,
+      "76": 76,
+      "77": 77,
+      "78": 78,
+      "79": 79,
+      "80": 80,
+      "81": 81,
+      "82": 82,
+      "83": 83,
+      "84": 84,
+      "85": 85,
+      "86": 86,
+      "87": 87,
+      "88": 88,
+      "89": 89,
+      "90": 90,
+      "91": 91,
+      "92": 92,
+      "93": 93,
+      "94": 94,
+      "95": 95,
+      "96": 96,
+      "97": 97,
+      "98": 98,
+      "99": 99,
+      "100": 100,
+      "101": 101,
+      "102": 102,
+      "103": 103,
+      "104": 104,
+      "105": 105,
+      "106": 106,
+      "107": 107,
+      "108": 108,
+      "109": 109,
+      "110": 110,
+      "111": 111,
+      "112": 112,
+      "113": 113,
+      "114": 114,
+      "115": 115,
+      "116": 116,
+      "117": 117,
+      "118": 118,
+      "119": 119,
+      "120": 120,
+      "121": 121,
+      "122": 122,
+      "123": 123,
+      "124": 124,
+      "125": 125,
+      "126": 126,
+      "127": 127,
+      "128": 128,
+      "129": 129,
+      "130": 130,
+      "131": 131,
+      "132": 132,
+      "133": 133,
+      "134": 134,
+      "135": 135,
+      "136": 136,
+      "137": 137,
+      "138": 138,
+      "139": 139,
+      "140": 140,
+      "141": 141,
+      "142": 142,
+      "143": 143,
+      "144": 144,
+      "145": 145,
+      "146": 146,
+      "147": 147,
+      "148": 148,
+      "149": 149,
+      "150": 150,
+      "151": 151,
+      "152": 152,
+      "153": 153,
+      "154": 154,
+      "155": 155,
+      "156": 156,
+      "157": 157,
+      "158": 158,
+      "159": 159,
+      "160": 160,
+      "161": 161,
+      "162": 162,
+      "163": 163,
+      "164": 164,
+      "165": 165,
+      "166": 166,
+      "167": 167,
+      "168": 168,
+      "169": 169,
+      "170": 170,
+      "171": 171,
+      "172": 172,
+      "173": 173,
+      "174": 174,
+      "175": 175,
+      "176": 176,
+      "177": 177,
+      "178": 178,
+      "179": 179,
+      "180": 180,
+      "181": 181,
+      "182": 182,
+      "183": 183,
+      "184": 184,
+      "185": 185,
+      "186": 186,
+      "187": 187,
+      "188": 188,
+      "189": 189,
+      "190": 190,
+      "191": 191,
+      "192": 192,
+      "193": 193,
+      "194": 194,
+      "195": 195,
+      "196": 196,
+      "197": 197,
+      "198": 198,
+      "199": 199,
+      "200": 200,
+      "201": 201,
+      "202": 202,
+      "203": 203,
+      "204": 204,
+      "205": 205,
+      "206": 206,
+      "207": 207,
+      "208": 208,
+      "209": 209,
+      "210": 210,
+      "211": 211,
+      "212": 212,
+      "213": 213,
+      "214": 214,
+      "215": 215,
+      "216": 216,
+      "217": -1
+    }
+  },
+  "coding_metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "batch_id": "msgbatch_0187yt9rEJ1WmtWvrRKsJBP8",
+    "coded_at": "2026-03-10T21:35:02Z",
+    "n_sentences": 217,
+    "n_coded": 217,
+    "n_invalid_labels": 0,
+    "n_missing_flags": 0,
+    "input_tokens": 14269,
+    "output_tokens": 7436,
+    "cost_usd": 0.0771735
+  }
+}

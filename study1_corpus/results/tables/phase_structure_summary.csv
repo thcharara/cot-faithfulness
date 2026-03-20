@@ -1,0 +1,10 @@
+,group,n,scanning_phase_pct_mean,scanning_phase_pct_sd,cycling_phase_pct_mean,cycling_phase_pct_sd,convergence_phase_pct_mean,convergence_phase_pct_sd
+0,Task 1,80,0.2117,0.239,0.7689,0.24,0.0194,0.0289
+1,Task 2,80,0.1732,0.1884,0.8005,0.1994,0.0263,0.0397
+2,Task 3,80,0.1053,0.0817,0.8672,0.1147,0.0276,0.0502
+3,Task 4,80,0.2415,0.277,0.7299,0.2835,0.0286,0.0557
+4,Completed,163,0.2726,0.2653,0.696,0.2725,0.0314,0.0568
+5,Truncated,157,0.0898,0.0654,0.8909,0.0722,0.0193,0.0258
+6,full_cycling,303,0.1509,0.16,0.8222,0.1764,0.0269,0.0455
+7,scan_test_conclude,14,0.7013,0.2672,0.2987,0.2672,0.0,0.0
+8,direct_insight,3,1.0,0.0,0.0,0.0,0.0,0.0

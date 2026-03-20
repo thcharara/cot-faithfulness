@@ -1,0 +1,284 @@
+{
+  "_schema": {
+    "cone_format": ["index","size","colour","orientation","contacts","position"]
+    },
+  "scene": "Scene 2",
+  "panels": {
+    "A": {
+      "number_of_cones": 5,
+      "yellow_star": true,
+      "cones": [
+        [
+          1,
+          "Medium",
+          "Green",
+          "Upright 0°",
+          "base on floor",
+          "extreme left, left corner almost touches left border; isolated"
+        ],
+        [
+          2,
+          "Small",
+          "Blue",
+          "Upright 0°",
+          "base on floor",
+          "small gap right of Cone 1; isolated"
+        ],
+        [
+          3,
+          "Small",
+          "Red",
+          "Upright 0°",
+          "base on floor; right side supports and overlaps base of Cone 4",
+          "medium gap right of Cone 2; at panel centre; starts Cone 3–5 cluster"
+        ],
+        [
+          4,
+          "Medium",
+          "Blue",
+          "Right tilted (30°); apex points up-right",
+          "no floor contact; base overlaps and rests on right side of Cone 3; right side raised and leans on left side of Cone 5",
+          "wedged between Cones 3 and 5 (no floor contact); supported by Cone 3; leans on apex of Cone 5"
+        ],
+        [
+          5,
+          "Small",
+          "Green",
+          "Upright 0°",
+          "base on floor; left side touched by right side of Cone 4",
+          "immediately right of Cone 3; completes cluster"
+        ]
+      ]
+    },
+    "B": {
+      "number_of_cones": 5,
+      "yellow_star": true,
+      "cones": [
+        [
+          1,
+          "Medium",
+          "Red",
+          "Upright 0°",
+          "base on floor; left corner meets left panel border; right corner meets left corner of Cone 2",
+          "extreme left of panel"
+        ],
+        [
+          2,
+          "Small",
+          "Red",
+          "Upright 0°",
+          "base on floor; left corner meets right corner of Cone 1",
+          "directly adjacent right of Cone 1"
+        ],
+        [
+          3,
+          "Small",
+          "Green",
+          "Upright 0°",
+          "base on floor",
+          "very little gap right of Cone 2"
+        ],
+        [
+          4,
+          "Small",
+          "Blue",
+          "Upright 0°",
+          "base on floor; right corner meets left corner of Cone 5",
+          "medium gap right of Cone 3; tight pair with Cone 5 at panel centre"
+        ],
+        [
+          5,
+          "Large",
+          "Green",
+          "Upright 0°",
+          "base on floor; left corner meets right corner of Cone 4",
+          "directly adjacent right of Cone 4; at the right-of-centre of panel"
+        ]
+      ]
+    },
+    "C": {
+      "number_of_cones": 5,
+      "yellow_star": false,
+      "cones": [
+        [
+          1,
+          "Medium",
+          "Red",
+          "Upright 0°",
+          "base on floor",
+          "wide gap from left border; left of centre; isolated"
+        ],
+        [
+          2,
+          "Medium",
+          "Blue",
+          "Upright 0°",
+          "base on floor",
+          "small gap right of Cone 1; at panel centre; isolated"
+        ],
+        [
+          3,
+          "Medium",
+          "Green",
+          "Upright 0°",
+          "base on floor; right corner meets left corner of Cone 4; right side supports left corner of Cone 5",
+          "starts right cluster; medium gap right of Cone 2; at right side of panel"
+        ],
+        [
+          4,
+          "Small",
+          "Red",
+          "Upright 0°",
+          "base on floor; left corner meets right corner of Cone 3; right corner meets right corner of Cone 5; fully enclosed inside Cone 5; apex touches left inner side of Cone 5",
+          "directly adjacent right of Cone 3"
+        ],
+        [
+          5,
+          "Large",
+          "Green",
+          "Right tilted (20°); apex points up-right",
+          "left corner rests on right side of Cone 3; right corner on floor and meets right corner of Cone 4; left inner side touched by apex of Cone 4",
+          "overlaps on top of Cone 4; completes right cluster; close to right panel border"
+        ]
+      ]
+    },
+    "D": {
+      "number_of_cones": 5,
+      "yellow_star": false,
+      "cones": [
+        [
+          1,
+          "Large",
+          "Blue",
+          "Upright 0°",
+          "base on floor",
+          "small gap from left panel border; isolated"
+        ],
+        [
+          2,
+          "Small",
+          "Red",
+          "Upright 0°",
+          "base on floor",
+          "large wide gap right of Cone 1; at the right side of the panel; first cone of right cluster"
+        ],
+        [
+          3,
+          "Medium",
+          "Red",
+          "Lying left 90°; apex points left",
+          "left side on floor; apex almost meets right corner of Cone 2; nested inside Cone 4",
+          "immediately right of Cone 2"
+        ],
+        [
+          4,
+          "Large",
+          "Green",
+          "Slightly right tilted (10°)",
+          "right corner on floor and overlaps left corner of Cone 3; left corner stands on apex of Cone 3; encloses Cone 3",
+          "immediately right of Cone 2; overlaps Cone 3; central cone of cluster"
+        ],
+        [
+          5,
+          "Medium",
+          "Green",
+          "Upright 0°",
+          "base on floor; left corner meets right corner of Cone 4",
+          "directly adjacent right of Cone 4; completes right-side cluster; small gap to right panel border"
+        ]
+      ]
+    },
+    "E": {
+      "number_of_cones": 5,
+      "yellow_star": true,
+      "cones": [
+        [
+          1,
+          "Medium",
+          "Green",
+          "Upright 0°",
+          "base on floor",
+          "small gap from left border"
+        ],
+        [
+          2,
+          "Small",
+          "Blue",
+          "Lying right 90°; apex points right",
+          "right side on floor; supports Cone 3; left corner touches left side of Cone 3",
+          "small gap right of Cone 1; under Cone 3"
+        ],
+        [
+          3,
+          "Large",
+          "Blue",
+          "Lying left 90°; apex points left",
+          "balanced on Cone 2; no floor contact; left side touched by left corner of Cone 2; left corner touches left side of Cone 4; no contact to floor",
+          "lies on top of Cone 2"
+        ],
+        [
+          4,
+          "Large",
+          "Green",
+          "Upright 0°",
+          "base on floor; left side touched by left corner of Cone 3",
+          "very little gap right of Cone 2; at left-of-centre; completes left cluster"
+        ],
+        [
+          5,
+          "Small",
+          "Green",
+          "Upright 0°",
+          "base on floor",
+          "wide gap right of Cone 4; isolated on right side of the panel"
+        ]
+      ]
+    },
+    "F": {
+      "number_of_cones": 5,
+      "yellow_star": false,
+      "cones": [
+        [
+          1,
+          "Small",
+          "Green",
+          "Upright 0°",
+          "base on floor",
+          "medium gap from left panel border; very little gap to Cone 2"
+        ],
+        [
+          2,
+          "Medium",
+          "Blue",
+          "Upright 0°",
+          "base on floor",
+          "very little gap right of Cone 1; small gap to Cone 3"
+        ],
+        [
+          3,
+          "Large",
+          "Red",
+          "Lying left 90°; apex points left",
+          "left side on floor",
+          "small gap right of Cone 2; lies at panel centre"
+        ],
+        [
+          4,
+          "Large",
+          "Blue",
+          "Right tilted (30°); apex points right",
+          "right corner on floor; apex touches left side of Cone 5; base parallels base of Cone 3",
+          "very little gap right of Cone 3"
+        ],
+        [
+          5,
+          "Medium",
+          "Red",
+          "Right tilted (10°)",
+          "right corner on floor; left corner raised; left side touched by apex of Cone 4",
+          "immediately right of Cone 4; medium gap from right border"
+        ]
+      ]
+    }
+  }
+}

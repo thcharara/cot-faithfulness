@@ -1,0 +1,3090 @@
+{
+  "task_id": 1,
+  "trace_id": 15,
+  "set": "A",
+  "seed": 1015,
+  "answer_text": "The hidden rule that distinguishes the starred panels from the unstarred ones is that the starred panels (A, E, F) each have a single continuous chain of cones connected in a linear path, forming a sequence where each cone directly supports the next. This creates a straight or snake-like line from the floor to the top. In contrast, the unstarred panels (B, C, D) have more varied and complex arrangements with multiple connections or branches, leading to a less structured, often more intricate setup.\n\n**Answer:** The star panels (A, E, F) each have a single continuous chain of cones connected in a linear path, forming a sequence where each cone directly supports the next. The non-star panels (B, C, D) have more complex arrangements with multiple connections, creating a less structured setup.<｜end▁of▁sentence｜>",
+  "thinking_tokens": 2835,
+  "total_tokens": 3006,
+  "prompt_tokens": 2506,
+  "truncated": false,
+  "generation_params": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "max_new_tokens": 4096
+  },
+  "generation_time_seconds": 240.6,
+  "timestamp": "2026-02-17T17:52:01.653442",
+  "model": "DeepSeek-R1-Distill-Llama-8B",
+  "quantization": "4bit-nf4",
+  "sentences": [
+    {
+      "sentence_id": 0,
+      "text": "Okay, so I've been given six panels, labeled A through F, each with an arrangement of cone-shaped objects.",
+      "start_char": 0,
+      "end_char": 106,
+      "token_count": 24,
+      "coding": {
+        "macro_label": "SETUP",
+        "micro_label": "ORIENT",
+        "depends_on": [],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 1,
+      "text": "My task is to figure out what the hidden rule is that distinguishes the panels with a yellow star from those without.",
+      "start_char": 107,
+      "end_char": 224,
+      "token_count": 24,
+      "coding": {
+        "macro_label": "SETUP",
+        "micro_label": "ORIENT",
+        "depends_on": [
+          "0"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 2,
+      "text": "The panels with a star follow this rule, while the others do not.",
+      "start_char": 225,
+      "end_char": 290,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "SETUP",
+        "micro_label": "ORIENT",
+        "depends_on": [
+          "1"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 3,
+      "text": "I need to examine each panel's description and try to find a pattern or rule that separates them.",
+      "start_char": 291,
+      "end_char": 390,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "depends_on": [
+          "2"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 4,
+      "text": "First, I'll start by looking at each panel one by one, noting their characteristics like the number of cones, their colors, sizes, orientations, positions, and other details.",
+      "start_char": 390,
+      "end_char": 564,
+      "token_count": 36,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "depends_on": [
+          "3"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 5,
+      "text": "Maybe I can find a pattern in these aspects that's consistent among the starred panels.",
+      "start_char": 565,
+      "end_char": 654,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "PLAN",
+        "depends_on": [
+          "4"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 6,
+      "text": "Starting with Panel A: It has 7 cones.",
+      "start_char": 654,
+      "end_char": 692,
+      "token_count": 11,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "5"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 7,
+      "text": "It's a star panel.",
+      "start_char": 693,
+      "end_char": 711,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "6"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 8,
+      "text": "The cones vary in size, color, and orientation.",
+      "start_char": 712,
+      "end_char": 759,
+      "token_count": 11,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "6",
+          "7"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 9,
+      "text": "For example, cone 1 is red, tilted left, at the extreme left.",
+      "start_char": 760,
+      "end_char": 821,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "8"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 10,
+      "text": "Cone 2 is green, upright, next to cone 1.",
+      "start_char": 822,
+      "end_char": 863,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "8"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 11,
+      "text": "Cone 3 is blue, on top of cone 2.",
+      "start_char": 864,
+      "end_char": 897,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "8"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 12,
+      "text": "So on.",
+      "start_char": 898,
+      "end_char": 904,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "8"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 13,
+      "text": "I notice that each cone seems to be connected in a chain, each supporting the next, forming a kind of tower.",
+      "start_char": 905,
+      "end_char": 1015,
+      "token_count": 24,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "depends_on": [
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 14,
+      "text": "Panel B: Not a star.",
+      "start_char": 1015,
+      "end_char": 1035,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "4"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 15,
+      "text": "It has 5 cones.",
+      "start_char": 1036,
+      "end_char": 1051,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "14"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 16,
+      "text": "The cones are green and blue, some lying on their sides.",
+      "start_char": 1052,
+      "end_char": 1108,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "15"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 17,
+      "text": "For example, cone 1 is small, green, lying right, near the left border.",
+      "start_char": 1109,
+      "end_char": 1180,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "16"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 18,
+      "text": "Cone 2 is green, upright, supporting cone 3.",
+      "start_char": 1181,
+      "end_char": 1225,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "16"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 19,
+      "text": "Cone 4 is green, lying on its side, supporting cone 5.",
+      "start_char": 1226,
+      "end_char": 1280,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "16"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 20,
+      "text": "Cone 5 is medium, green, tilted, overlapping cone 4.",
+      "start_char": 1281,
+      "end_char": 1333,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "16"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 21,
+      "text": "This arrangement seems more chaotic, with some cones lying on their sides and others upright.",
+      "start_char": 1334,
+      "end_char": 1429,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "depends_on": [
+          "16",
+          "17",
+          "18",
+          "19",
+          "20"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 22,
+      "text": "Panel C: Also not a star.",
+      "start_char": 1429,
+      "end_char": 1454,
+      "token_count": 8,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "4",
+          "6",
+          "14"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 23,
+      "text": "It has 6 cones.",
+      "start_char": 1455,
+      "end_char": 1470,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "22"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 24,
+      "text": "Cone 1 is medium, blue, inside cone 2.",
+      "start_char": 1471,
+      "end_char": 1509,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "23"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 25,
+      "text": "Cone 2 is large, green, enclosing cone 1.",
+      "start_char": 1510,
+      "end_char": 1551,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "23",
+          "24"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 26,
+      "text": "Cone 3 is large, green, next to cone 2.",
+      "start_char": 1552,
+      "end_char": 1591,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "23",
+          "25"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 27,
+      "text": "Cone 4 is small, blue, lying on its side, supporting cone 5.",
+      "start_char": 1592,
+      "end_char": 1652,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "23",
+          "26"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 28,
+      "text": "Cone 5 is medium, blue, tilted, overlapping cone 4.",
+      "start_char": 1653,
+      "end_char": 1704,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "23",
+          "27"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 29,
+      "text": "Cone 6 is small, green, next to cone 5.",
+      "start_char": 1705,
+      "end_char": 1744,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "23",
+          "28"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 30,
+      "text": "This seems like a mix of some nested and some adjacent cones, but not a clear chain like in panel A.",
+      "start_char": 1745,
+      "end_char": 1867,
+      "token_count": 30,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "depends_on": [
+          "6",
+          "13",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 31,
+      "text": "Panel D: Not a star. 5 cones.",
+      "start_char": 1868,
+      "end_char": 1876,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "4",
+          "6",
+          "14",
+          "22"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 32,
+      "text": "Cone 1 is medium, blue, near the left.",
+      "start_char": 1877,
+      "end_char": 1915,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "31"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 33,
+      "text": "Cone 2 is large, green, next to cone 1.",
+      "start_char": 1916,
+      "end_char": 1955,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "31",
+          "32"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 34,
+      "text": "Cone 3 is small, blue, tilted, next to cone 2.",
+      "start_char": 1956,
+      "end_char": 2002,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "31",
+          "33"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 35,
+      "text": "Cone 4 is large, blue, supporting cone 5.",
+      "start_char": 2003,
+      "end_char": 2044,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "31",
+          "34"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 36,
+      "text": "Cone 5 is small, blue, on top of cone 4.",
+      "start_char": 2045,
+      "end_char": 2085,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "31",
+          "35"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 37,
+      "text": "This arrangement seems to have some nesting and some adjacent cones, but not a single chain.",
+      "start_char": 2086,
+      "end_char": 2180,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "depends_on": [
+          "32",
+          "33",
+          "34",
+          "35",
+          "36"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 38,
+      "text": "Panel E: A star.",
+      "start_char": 2180,
+      "end_char": 2196,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "4",
+          "6",
+          "14",
+          "22",
+          "31"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 39,
+      "text": "It has 6 cones.",
+      "start_char": 2197,
+      "end_char": 2212,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "38"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 40,
+      "text": "The description is more complex.",
+      "start_char": 2213,
+      "end_char": 2245,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "MONITOR",
+        "depends_on": [
+          "39"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "sentence_id": 41,
+      "text": "Cone 1 is medium, green, upside-down, apex on the floor.",
+      "start_char": 2246,
+      "end_char": 2302,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "39"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 42,
+      "text": "Cone 2 is small, red, lying on its side, overlapping cone 3.",
+      "start_char": 2303,
+      "end_char": 2363,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "39",
+          "41"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 43,
+      "text": "Cone 3 is small, blue, tilted, overlapping cone 2.",
+      "start_char": 2364,
+      "end_char": 2414,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "39",
+          "42"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 44,
+      "text": "Cone 4 is large, green, lying on its side, next to cone 3.",
+      "start_char": 2415,
+      "end_char": 2473,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "39",
+          "43"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 45,
+      "text": "Cone 5 is medium, green, nested inside cone 6.",
+      "start_char": 2474,
+      "end_char": 2520,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "39",
+          "44"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 46,
+      "text": "Cone 6 is large, blue, enclosing cone 5.",
+      "start_char": 2521,
+      "end_char": 2561,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "39",
+          "45"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 47,
+      "text": "This seems like a more intricate arrangement, with multiple overlaps and interactions.",
+      "start_char": 2562,
+      "end_char": 2650,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "depends_on": [
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 48,
+      "text": "Panel F: Also a star.",
+      "start_char": 2650,
+      "end_char": 2671,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "4",
+          "6",
+          "14",
+          "22",
+          "31",
+          "38"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 49,
+      "text": "It has 8 cones.",
+      "start_char": 2672,
+      "end_char": 2687,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "48"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 50,
+      "text": "Cone 1 is large, green, on the floor.",
+      "start_char": 2688,
+      "end_char": 2725,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "49"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 51,
+      "text": "Cone 2 is small, blue, next to cone 1.",
+      "start_char": 2726,
+      "end_char": 2764,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "49",
+          "50"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 52,
+      "text": "Cone 3 is large, blue, lying on its side, enclosing cone 4.",
+      "start_char": 2765,
+      "end_char": 2824,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "49",
+          "51"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 53,
+      "text": "Cone 4 is medium, red, nested inside cone 3.",
+      "start_char": 2825,
+      "end_char": 2869,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "49",
+          "52"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 54,
+      "text": "Cone 5 is small, green, next to cone 3.",
+      "start_char": 2870,
+      "end_char": 2909,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "49",
+          "53"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 55,
+      "text": "Cone 6 is small, red, upside-down, next to cone 5.",
+      "start_char": 2910,
+      "end_char": 2960,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "49",
+          "54"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 56,
+      "text": "Cone 7 is medium, green, supporting cone 8.",
+      "start_char": 2961,
+      "end_char": 3004,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "49",
+          "55"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 57,
+      "text": "Cone 8 is medium, blue, on top of cone 7.",
+      "start_char": 3005,
+      "end_char": 3046,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "DESCRIBE",
+        "depends_on": [
+          "49",
+          "56"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 58,
+      "text": "This arrangement is quite complex, with multiple interactions and nesting.",
+      "start_char": 3047,
+      "end_char": 3123,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "depends_on": [
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 59,
+      "text": "Looking at the star panels (A, E, F) versus the non-star panels (B, C, D), I notice some patterns.",
+      "start_char": 3123,
+      "end_char": 3223,
+      "token_count": 29,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "depends_on": [
+          "13",
+          "21",
+          "30",
+          "37",
+          "47",
+          "58"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 60,
+      "text": "Star Panels:\n- Panel A: Chain-like structure where each cone is connected to the next, forming a single line.\n- Panel E: More complex interactions, with multiple overlaps and a kind of nesting.\n- Panel F: Even more complex, with multiple layers and interactions.",
+      "start_char": 3223,
+      "end_char": 3487,
+      "token_count": 55,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "depends_on": [
+          "13",
+          "47",
+          "58"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 61,
+      "text": "Non-Star Panels:\n- Panels B, C, D: More varied in their connections, with some nesting, some adjacent, some lying on sides, but not in a single coherent chain.",
+      "start_char": 3487,
+      "end_char": 3648,
+      "token_count": 38,
+      "coding": {
+        "macro_label": "OBSERVE",
+        "micro_label": "SYNTHESIZE",
+        "depends_on": [
+          "21",
+          "30",
+          "37"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 62,
+      "text": "So, what could the rule be?",
+      "start_char": 3648,
+      "end_char": 3675,
+      "token_count": 8,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "MONITOR",
+        "depends_on": [
+          "60",
+          "61"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 63,
+      "text": "It seems like the star panels have a specific type of arrangement.",
+      "start_char": 3676,
+      "end_char": 3742,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "60",
+          "61"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "sentence_id": 64,
+      "text": "Maybe the key is the number of cones?",
+      "start_char": 3743,
+      "end_char": 3780,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "62"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 65,
+      "text": "But Panel A has 7, E has 6, F has 8.",
+      "start_char": 3781,
+      "end_char": 3817,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "6",
+          "39",
+          "49",
+          "64"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 66,
+      "text": "So that doesn't seem consistent.",
+      "start_char": 3818,
+      "end_char": 3852,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "65"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 67,
+      "text": "Looking at the orientation: In star panels, I notice that in Panel A, most are upright, but in E and F, there are some lying on their sides.",
+      "start_char": 3852,
+      "end_char": 3992,
+      "token_count": 34,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "pre_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "9",
+          "10",
+          "41",
+          "42",
+          "43",
+          "44",
+          "52",
+          "55"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 68,
+      "text": "So maybe the rule isn't about orientation.",
+      "start_char": 3993,
+      "end_char": 4037,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "67"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 69,
+      "text": "Looking at the colors: A has red, green, blue; E has green, red, blue; F has green, blue, red.",
+      "start_char": 4037,
+      "end_char": 4131,
+      "token_count": 29,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "pre_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "9",
+          "10",
+          "11",
+          "41",
+          "42",
+          "43",
+          "50",
+          "51",
+          "53"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 70,
+      "text": "So colors vary, so not color-based.",
+      "start_char": 4132,
+      "end_char": 4169,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "69"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 71,
+      "text": "Looking at the connections: In star panels, there's a more linear chain of cones, each supporting the next, forming a path.",
+      "start_char": 4169,
+      "end_char": 4292,
+      "token_count": 27,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "pre_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "13",
+          "42",
+          "45",
+          "46",
+          "52",
+          "53",
+          "56",
+          "57"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 72,
+      "text": "In non-star panels, the connections are more random, with some nesting, some adjacent, some overlapping.",
+      "start_char": 4293,
+      "end_char": 4399,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "pre_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "20",
+          "24",
+          "25",
+          "27",
+          "28"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 73,
+      "text": "Wait, in star panels, maybe each cone is either directly supporting the next one in a linear sequence.",
+      "start_char": 4399,
+      "end_char": 4501,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "71"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 74,
+      "text": "So in Panel A, each cone is connected to the next in a line.",
+      "start_char": 4502,
+      "end_char": 4562,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "73",
+          "13"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 75,
+      "text": "In E and F, the connections are more intricate, but still forming a single path.",
+      "start_char": 4563,
+      "end_char": 4645,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "73",
+          "42",
+          "45",
+          "46",
+          "52",
+          "53",
+          "56",
+          "57"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 76,
+      "text": "But in non-star panels, the connections are more complex, with multiple overlaps and different orientations.",
+      "start_char": 4645,
+      "end_char": 4755,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "73",
+          "72"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 77,
+      "text": "Alternatively, maybe the rule is about the number of cones each panel has.",
+      "start_char": 4755,
+      "end_char": 4829,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "73",
+          "64"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 78,
+      "text": "But Panel A has 7, E has 6, F has 8.",
+      "start_char": 4830,
+      "end_char": 4866,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "77",
+          "6",
+          "39",
+          "49"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 79,
+      "text": "So that's inconsistent.",
+      "start_char": 4867,
+      "end_char": 4892,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "78"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 80,
+      "text": "Wait, looking deeper:",
+      "start_char": 4892,
+      "end_char": 4913,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "MONITOR",
+        "depends_on": [
+          "79"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 81,
+      "text": "In star panels, maybe each cone is connected in such a way that there's a single path from the floor to the top, without branches.",
+      "start_char": 4914,
+      "end_char": 5044,
+      "token_count": 29,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "73",
+          "75",
+          "76"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 82,
+      "text": "So in A, each cone is connected in a straight line.",
+      "start_char": 5045,
+      "end_char": 5096,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "81",
+          "13"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 83,
+      "text": "In E, the connections are more like a snake, but still a single path.",
+      "start_char": 5097,
+      "end_char": 5166,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "81",
+          "42",
+          "45",
+          "46"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 84,
+      "text": "In F, the connections are even more complex, but still a single path.",
+      "start_char": 5167,
+      "end_char": 5238,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "81",
+          "52",
+          "53",
+          "56",
+          "57"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 85,
+      "text": "Non-star panels have more branches or overlaps, making the structure more complicated and not a single path.",
+      "start_char": 5238,
+      "end_char": 5348,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "81",
+          "72"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 86,
+      "text": "Alternatively, maybe the rule is that all star panels have a strictly increasing or decreasing size order, but looking at the sizes:",
+      "start_char": 5348,
+      "end_char": 5482,
+      "token_count": 25,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "81"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 87,
+      "text": "In Panel A: Sizes are Large, Large, Large, Small, Medium, Medium, Medium.",
+      "start_char": 5482,
+      "end_char": 5555,
+      "token_count": 20,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "extract",
+        "depends_on": [
+          "86",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 88,
+      "text": "So not strictly increasing or decreasing.",
+      "start_char": 5556,
+      "end_char": 5599,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "derived",
+        "depends_on": [
+          "86",
+          "87"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 89,
+      "text": "In E: Sizes are Medium, Small, Small, Large, Medium, Large.",
+      "start_char": 5599,
+      "end_char": 5658,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "extract",
+        "depends_on": [
+          "86",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 90,
+      "text": "Also not strictly increasing or decreasing.",
+      "start_char": 5659,
+      "end_char": 5704,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "derived",
+        "depends_on": [
+          "86",
+          "89"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 91,
+      "text": "In F: Sizes are Large, Small, Large, Medium, Small, Small, Medium, Medium.",
+      "start_char": 5704,
+      "end_char": 5778,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "extract",    
+        "depends_on": [
+          "86",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 92,
+      "text": "Again, not strictly.",
+      "start_char": 5779,
+      "end_char": 5801,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "derived",
+        "depends_on": [
+          "86",
+          "91"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 93,
+      "text": "So that doesn't fit.",
+      "start_char": 5801,
+      "end_char": 5823,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "86",
+          "88",
+          "90",
+          "92"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 94,
+      "text": "Another angle: Maybe the number of contacts each cone has.",
+      "start_char": 5823,
+      "end_char": 5881,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "93"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 95,
+      "text": "In star panels, perhaps each cone touches the next one, forming a chain.",
+      "start_char": 5882,
+      "end_char": 5954,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "94",
+          "81"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "sentence_id": 96,
+      "text": "In non-star panels, they have more contacts, but not in a single chain.",
+      "start_char": 5955,
+      "end_char": 6028,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "95",
+          "72"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 97,
+      "text": "Looking at Panel A's description, each cone is connected to the next.",
+      "start_char": 6028,
+      "end_char": 6097,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "95",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 98,
+      "text": "For example, cone 1's right corner touches cone 2's left side, cone 2's right corner touches cone 3's left side, etc.",
+      "start_char": 6098,
+      "end_char": 6215,
+      "token_count": 33,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "extract",
+        "depends_on": [
+          "97",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 99,
+      "text": "So each cone is only connected to the next one, forming a straight line.",
+      "start_char": 6216,
+      "end_char": 6290,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "derived",
+        "depends_on": [
+          "95",
+          "98"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 100,
+      "text": "In E, the connections are more like a chain, but with some overlaps.",
+      "start_char": 6290,
+      "end_char": 6358,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "95",
+          "42",
+          "45",
+          "46"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 101,
+      "text": "For example, cone 2's left side touches cone 3's left side, and cone 3's left side touches cone 4's base.",
+      "start_char": 6359,
+      "end_char": 6464,
+      "token_count": 31,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "extract",
+        "depends_on": [
+          "100",
+          "42",
+          "45",
+          "46"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 102,
+      "text": "So it's still a linear chain.",
+      "start_char": 6465,
+      "end_char": 6496,
+      "token_count": 8,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "derived",
+        "depends_on": [
+          "95",
+          "101"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 103,
+      "text": "In F, the connections are even more complex, but still a single chain.",
+      "start_char": 6496,
+      "end_char": 6566,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "derived",
+        "depends_on": [
+          "95",
+          "52",
+          "53",
+          "56",
+          "57"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 104,
+      "text": "Each cone is connected to the next, forming a path.",
+      "start_char": 6567,
+      "end_char": 6620,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+            "test_context": "post_hypothesis",
+            "specificity": "within_panel",
+            "representation": "derived",
+        "depends_on": [
+          "95",
+          "103"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 105,
+      "text": "In non-star panels, like B, C, D, the connections are more varied.",
+      "start_char": 6620,
+      "end_char": 6686,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "96",
+          "72"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 106,
+      "text": "For example, in B, cone 1 is lying on its side, cone 2 is supporting cone 3, but cone 4 is lying on its side, supporting cone 5, which overlaps cone 4.",
+      "start_char": 6687,
+      "end_char": 6838,
+      "token_count": 45,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "extract",
+        "depends_on": [
+          "105",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 107,
+      "text": "So it's a linear chain but with some overlaps, but still forming a single path.",
+      "start_char": 6839,
+      "end_char": 6920,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "derived",
+        "depends_on": [
+          "96",
+          "106"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 108,
+      "text": "Wait, but all panels have some form of connections, so that can't be it.",
+      "start_char": 6920,
+      "end_char": 6994,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "94",
+          "95",
+          "107"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 109,
+      "text": "Wait, maybe the rule is that in star panels, each cone is either the only one of its color.",
+      "start_char": 6994,
+      "end_char": 7085,
+      "token_count": 22,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "108"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 110,
+      "text": "Looking at Panel A: Red, Green, Blue, Red, Medium, Green, Green.",
+      "start_char": 7086,
+      "end_char": 7150,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "representation": "extract",
+        "depends_on": [
+          "109",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 111,
+      "text": "So two red, two greens, two blues, and a medium.",
+      "start_char": 7151,
+      "end_char": 7199,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "representation": "derived",
+        "depends_on": [
+          "110"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 112,
+      "text": "Not unique.",
+      "start_char": 7200,
+      "end_char": 7213,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "derived",
+        "depends_on": [
+          "109",
+          "111"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 113,
+      "text": "In E: Green, Red, Blue, Green, Medium, Blue.",
+      "start_char": 7213,
+      "end_char": 7257,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "representation": "extract",
+        "depends_on": [
+          "109",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 114,
+      "text": "So two greens, one red, two blues, one medium.",
+      "start_char": 7258,
+      "end_char": 7304,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "representation": "derived",
+        "depends_on": [
+          "113"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 115,
+      "text": "Not unique.",
+      "start_char": 7305,
+      "end_char": 7318,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "derived",
+        "depends_on": [
+          "109",
+          "114"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 116,
+      "text": "In F: Green, Blue, Red, Red, Green, Red, Green, Blue.",
+      "start_char": 7318,
+      "end_char": 7371,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "representation": "extract",
+        "depends_on": [
+          "109",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 117,
+      "text": "So three greens, three reds, two blues.",
+      "start_char": 7372,
+      "end_char": 7411,
+      "token_count": 11,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "representation": "derived",
+        "depends_on": [
+          "116"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 118,
+      "text": "Not unique.",
+      "start_char": 7412,
+      "end_char": 7425,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+          "test_context": "post_hypothesis",
+          "specificity": "within_panel",
+          "representation": "derived",
+        "depends_on": [
+          "109",
+          "117"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 119,
+      "text": "So that's not it.",
+      "start_char": 7425,
+      "end_char": 7444,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "109",
+          "112",
+          "115",
+          "118"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 120,
+      "text": "Another idea: The number of times a cone is the only one of its color.",
+      "start_char": 7444,
+      "end_char": 7514,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "119"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 121,
+      "text": "In A, each color appears multiple times.",
+      "start_char": 7515,
+      "end_char": 7555,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "120",
+          "111"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 122,
+      "text": "In E and F, same.",
+      "start_char": 7556,
+      "end_char": 7573,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "120",
+          "114",
+          "117"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 123,
+      "text": "So not unique.",
+      "start_char": 7574,
+      "end_char": 7590,
+      "token_count": 4,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "120",
+          "121",
+          "122"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 124,
+      "text": "Looking at the positions: In star panels, maybe each cone's position is either on the left or right side, but that doesn't seem to be the case.",
+      "start_char": 7590,
+      "end_char": 7735,
+      "token_count": 33,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "pre_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "6",
+          "39",
+          "48"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "sentence_id": 125,
+      "text": "Wait, looking at the star panels, perhaps the number of times a cone is the smallest or largest.",
+      "start_char": 7735,
+      "end_char": 7831,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "124"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 126,
+      "text": "In A, there are two Large, two Medium, two Small.",
+      "start_char": 7832,
+      "end_char": 7881,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "125",
+          "87"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 127,
+      "text": "In E, similar.",
+      "start_char": 7882,
+      "end_char": 7896,
+      "token_count": 5,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "125",
+          "89"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 128,
+      "text": "In F, also multiple sizes.",
+      "start_char": 7897,
+      "end_char": 7925,
+      "token_count": 7,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "125",
+          "91"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 129,
+      "text": "Alternatively, perhaps the rule is that in star panels, each cone is either the smallest or the largest in the panel.",
+      "start_char": 7925,
+      "end_char": 8042,
+      "token_count": 24,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "125"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 130,
+      "text": "But in A, there are two of each, so that doesn't fit.",
+      "start_char": 8043,
+      "end_char": 8098,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "129",
+          "126"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 131,
+      "text": "Wait, another approach: Maybe the star panels have a specific type of movement or orientation.",
+      "start_char": 8098,
+      "end_char": 8192,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "130"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 132,
+      "text": "For example, in A, most are upright, while in E and F, some are lying on their sides.",
+      "start_char": 8193,
+      "end_char": 8280,
+      "token_count": 23,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "131",
+          "9",
+          "10",
+          "41",
+          "42",
+          "43",
+          "44",
+          "52",
+          "55"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 133,
+      "text": "But in E, some are lying on their sides, but still forming a chain.",
+      "start_char": 8280,
+      "end_char": 8347,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "131",
+          "132",
+          "83"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 134,
+      "text": "In F, more are lying on their sides, but again forming a chain.",
+      "start_char": 8348,
+      "end_char": 8413,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "131",
+          "132",
+          "84"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 135,
+      "text": "Wait, maybe the rule is that in star panels, each cone is either lying on its side or upright, but I don't think so because in A, most are upright.",
+      "start_char": 8413,
+      "end_char": 8562,
+      "token_count": 36,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "pre_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "131",
+          "132"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 136,
+      "text": "Alternatively, perhaps the number of times a cone is the first or last in the chain.",
+      "start_char": 8562,
+      "end_char": 8646,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "135",
+          "81"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 137,
+      "text": "In A, cone 1 is first, cone 7 is last.",
+      "start_char": 8647,
+      "end_char": 8685,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "136",
+          "6",
+          "74"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 138,
+      "text": "In E, cone 1 is first, cone 6 is last.",
+      "start_char": 8686,
+      "end_char": 8724,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "136",
+          "39",
+          "83"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 139,
+      "text": "In F, cone 1 is first, cone 8 is last.",
+      "start_char": 8725,
+      "end_char": 8763,
+      "token_count": 15,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "136",
+          "49",
+          "84"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 140,
+      "text": "So all star panels have a single starting and ending cone, while non-star panels have more complex starts and ends.",
+      "start_char": 8764,
+      "end_char": 8881,
+      "token_count": 23,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "136",
+          "137",
+          "138",
+          "139"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "sentence_id": 141,
+      "text": "Looking at non-star panels: B has 5 cones, with cone 1 near the left, cone 5 near the right.",
+      "start_char": 8881,
+      "end_char": 8973,
+      "token_count": 27,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "140",
+          "14",
+          "15",
+          "19"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 142,
+      "text": "C has 6 cones, starting near left, ending near right.",
+      "start_char": 8974,
+      "end_char": 9027,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "140",
+          "23",
+          "24",
+          "25"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 143,
+      "text": "D has 5 cones, starting near left, ending near right.",
+      "start_char": 9028,
+      "end_char": 9083,
+      "token_count": 14,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "140",
+          "32",
+          "33",
+          "34"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 144,
+      "text": "Wait, but all panels have a start and end, so that can't be it.",
+      "start_char": 9083,
+      "end_char": 9148,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "140",
+          "141",
+          "142",
+          "143"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 145,
+      "text": "Another idea: Maybe the rule is about how the cones are arranged in terms of their connections.",
+      "start_char": 9148,
+      "end_char": 9243,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "144"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 146,
+      "text": "In star panels, each cone is connected to the next in a linear fashion, forming a single path.",
+      "start_char": 9244,
+      "end_char": 9338,
+      "token_count": 21,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "145",
+          "81",
+          "82",
+          "83",
+          "84"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 147,
+      "text": "In non-star panels, there are multiple connections, forming a tree-like structure with branches.",
+      "start_char": 9339,
+      "end_char": 9437,
+      "token_count": 18,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "145",
+          "72",
+          "141",
+          "142",
+          "143"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 148,
+      "text": "But I'm not sure.",
+      "start_char": 9437,
+      "end_char": 9454,
+      "token_count": 6,
+      "coding": {
+        "macro_label": "REGULATE",
+        "micro_label": "MONITOR",
+        "depends_on": [
+          "146",
+          "147"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 149,
+      "text": "Alternatively, maybe the star panels have a single \"chain\" without branches, while non-star panels have more branches.",
+      "start_char": 9455,
+      "end_char": 9575,
+      "token_count": 23,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "145",
+          "146",
+          "147"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 150,
+      "text": "Wait, in star panels, each cone is either the predecessor or successor of another, forming a single sequence.",
+      "start_char": 9575,
+      "end_char": 9684,
+      "token_count": 22,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "149"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 151,
+      "text": "In non-star panels, there are more connections, creating branches.",
+      "start_char": 9685,
+      "end_char": 9753,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "150",
+          "72"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 152,
+      "text": "But in all panels, there are connections, so that's not the exact difference.",
+      "start_char": 9753,
+      "end_char": 9832,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "150",
+          "151",
+          "108"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 153,
+      "text": "Another angle: Maybe the star panels have a specific color pattern.",
+      "start_char": 9832,
+      "end_char": 9899,
+      "token_count": 13,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "152"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 154,
+      "text": "For example, in A, red and green are the main colors, with blue as another.",
+      "start_char": 9900,
+      "end_char": 9975,
+      "token_count": 19,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "153",
+          "69",
+          "110",
+          "111"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 155,
+      "text": "In E, green and red, with blue.",
+      "start_char": 9976,
+      "end_char": 10007,
+      "token_count": 10,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "153",
+          "69",
+          "113",
+          "114"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 156,
+      "text": "In F, green, blue, red.",
+      "start_char": 10008,
+      "end_char": 10031,
+      "token_count": 9,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "153",
+          "69",
+          "116",
+          "117"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 157,
+      "text": "So they all have three colors, while non-star panels also have multiple colors.",
+      "start_char": 10032,
+      "end_char": 10113,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "uncertain",
+        "depends_on": [
+          "153",
+          "154",
+          "155",
+          "156"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 158,
+      "text": "Alternatively, the star panels have an even number of cones, but A has 7, E has 6, F has 8.",
+      "start_char": 10113,
+      "end_char": 10204,
+      "token_count": 28,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "pre_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "64",
+          "78"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "sentence_id": 159,
+      "text": "So no.",
+      "start_char": 10205,
+      "end_char": 10213,
+      "token_count": 3,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "reject",
+        "depends_on": [
+          "158"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 160,
+      "text": "Wait, looking at the star panels again: A, E, F have a specific arrangement where each cone is connected in a way that forms a single path from the floor to the top.",
+      "start_char": 10213,
+      "end_char": 10378,
+      "token_count": 38,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "HYPO",
+        "depends_on": [
+          "145",
+          "149",
+          "150",
+          "81",
+          "83",
+          "84"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 161,
+      "text": "So in A, it's a straight line.",
+      "start_char": 10379,
+      "end_char": 10409,
+      "token_count": 10,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "160",
+          "82"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 162,
+      "text": "In E, it's a snake-like path, but still a single path.",
+      "start_char": 10410,
+      "end_char": 10464,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "160",
+          "83"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 163,
+      "text": "In F, it's a more complex snake, but still a single path.",
+      "start_char": 10465,
+      "end_char": 10524,
+      "token_count": 16,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "within_panel",
+        "depends_on": [
+          "160",
+          "84"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 164,
+      "text": "In non-star panels, the connections are more varied, with some cones lying on their sides, some nested, some adjacent, creating a more complex structure that's not a single path.",
+      "start_char": 10524,
+      "end_char": 10704,
+      "token_count": 37,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "TEST",
+        "test_context": "post_hypothesis",
+        "specificity": "across_panels",
+        "depends_on": [
+          "160",
+          "72",
+          "141",
+          "142",
+          "143"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 165,
+      "text": "So, perhaps the rule is that star panels have a single continuous path from the floor to the top, while non-star panels have multiple paths or branches.",
+      "start_char": 10704,
+      "end_char": 10858,
+      "token_count": 31,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "accept",
+        "depends_on": [
+          "160",
+          "161",
+          "162",
+          "163",
+          "164"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 166,
+      "text": "Alternatively, the star panels have a single \"chain\" of cones connected in a specific way, while non-star panels have more complex arrangements with multiple connections.",
+      "start_char": 10858,
+      "end_char": 11030,
+      "token_count": 31,
+      "coding": {
+        "macro_label": "INVESTIGATE",
+        "micro_label": "JUDGE",
+          "judgement": "accept",
+        "depends_on": [
+          "165"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 167,
+      "text": "Given that, I think the rule might be that the star panels have a single connected chain of cones, each supporting the next, forming a path from the floor to the top.",
+      "start_char": 11030,
+      "end_char": 11196,
+      "token_count": 36,
+      "coding": {
+        "macro_label": "CONCLUDE",
+        "micro_label": "RULE",
+        "depends_on": [
+          "165",
+          "166"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 168,
+      "text": "Non-star panels have multiple such chains or more complex interactions.",
+      "start_char": 11197,
+      "end_char": 11270,
+      "token_count": 12,
+      "coding": {
+        "macro_label": "CONCLUDE",
+        "micro_label": "RULE",
+        "depends_on": [
+          "167"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 169,
+      "text": "So, to state my best guess: The hidden rule is that the star panels have a single continuous chain of cones connected such that each cone is directly supporting the next in a linear path, forming a straight or snake-like line from the floor to the top.",
+      "start_char": 11270,
+      "end_char": 11522,
+      "token_count": 52,
+      "coding": {
+        "macro_label": "CONCLUDE",
+        "micro_label": "RULE",
+        "depends_on": [
+          "167",
+          "168"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "sentence_id": 170,
+      "text": "Non-star panels have arrangements with multiple connections or branches, making the structure more complex.",
+      "start_char": 11523,
+      "end_char": 11630,
+      "token_count": 17,
+      "coding": {
+        "macro_label": "CONCLUDE",
+        "micro_label": "RULE",
+        "depends_on": [
+          "169"
+        ],
+        "confidence": "high"
+      }
+    }
+  ]
+}

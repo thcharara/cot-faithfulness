@@ -1,0 +1,10 @@
+,flag,value,count,pct
+0,test_context,post_hypothesis,33799,91.8
+1,test_context,pre_hypothesis,2737,7.4
+2,test_context,post_rule,295,0.8
+3,test_context,post_judgement,1,0.0
+4,specificity,within_panel,28699,77.9
+5,specificity,across_panels,8133,22.1
+6,judgement,reject,6436,71.1
+7,judgement,uncertain,1859,20.5
+8,judgement,accept,759,8.4

@@ -1,0 +1,27 @@
+  # Core
+  torch>=2.0.0
+  transformers>=4.40.0
+  accelerate>=1.0.0
+  bitsandbytes>=0.49.0
+
+  # API
+  anthropic>=0.40.0
+  python-dotenv>=1.0.0
+
+  # NLP
+  spacy>=3.7.0
+  sentence-transformers>=2.0.0
+
+  # ML / Analysis
+  scikit-learn>=1.4.0
+  numpy>=1.26.0
+  pandas>=2.0.0
+  scipy>=1.12.0
+
+  # Visualization
+  matplotlib>=3.8.0
+  seaborn>=0.13.0
+
+  # Notebooks
+  jupyter>=1.0.0
+  ipykernel>=6.0.0

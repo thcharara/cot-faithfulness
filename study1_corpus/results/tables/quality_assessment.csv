@@ -1,0 +1,14 @@
+,check,value,n_issues
+0,micro_label_valid_pct,100.00%,0
+1,macro_label_valid_pct,100.00%,0
+2,macro_micro_mismatch,0,0
+3,test_context_valid_pct,100.0%,1
+4,specificity_valid_pct,100.0%,0
+5,judgement_valid_pct,100.0%,0
+6,confidence_valid_pct,100.0%,0
+7,non_test_has_test_flags,0,0
+8,non_judge_has_judgement,0,0
+9,orient_in_first5_pct,100.0%,0
+10,rule_in_completed_pct,96.3%,6
+11,traces_with_10plus_run,209,209
+12,traces_with_70pct_dominance,1,1

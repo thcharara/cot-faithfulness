@@ -1,0 +1,31 @@
+The following is a chain-of-thought reasoning trace produced by an LLM solving a visual inductive reasoning task. In this task, the model was presented with six panels (A through F), each containing an arrangement of cone-shaped objects that vary in colour, size, orientation, and spatial position. Panels marked with a yellow star follow a hidden rule; panels without a star do not. The model's goal was to examine all six panels and infer the hidden rule that distinguishes starred from unstarred panels.
+
+Here is the specific task the model was solving:
+
+<TASK>
+{task_json}
+</TASK>
+
+Below are the sentences from the reasoning trace. Code each sentence according to the taxonomy in your instructions.
+
+<SENTENCES>
+{numbered_sentences}
+</SENTENCES>
+
+---
+
+Respond with a JSON array containing one object per sentence. Each object must have:
+- "sentence_id" (integer matching the sentence numbers above)
+- "micro_label" (one of: ORIENT, DESCRIBE, SYNTHESIZE, HYPO, TEST, JUDGE, PLAN, MONITOR, RULE)
+- "confidence" ("high" or "medium")
+
+For TEST sentences, also include:
+- "test_context" ("post_hypothesis", "pre_hypothesis", or "post_rule")
+- "specificity" ("within_panel" or "across_panels")
+
+For JUDGE sentences, also include:
+- "judgement" ("accept", "reject", or "uncertain")
+
+Do NOT include macro_label or depends_on.
+
+Respond with ONLY the JSON array. No other text.
