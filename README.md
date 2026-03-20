@@ -42,20 +42,20 @@
 
   ## Directory Structure
 
-  ├── data/                    Stimuli, taxonomy prompts, validation traces
-  ├── study1_corpus/           Corpus generation, coding, and analysis pipeline
-  │   ├── scripts/             10 pipeline scripts (generate → code → validate → analyse)
-  │   ├── notebooks/           9 analysis notebooks + helper module
-  │   └── results/             Report, figures, and tables
-  ├── study2a_probes/          Activation extraction and linear probe training
-  │   ├── scripts/             6 pipeline scripts
-  │   ├── notebooks/           Probe analysis notebook
-  │   └── results/             Confusion matrices and probe report
-  ├── study2b_steering/        Steering vector experiments
-  │   ├── scripts/             4 pipeline scripts
-  │   ├── notebooks/           Steering analysis notebook
-  │   └── results/             Steering effect summaries and figures
-  └── docs/                    Taxonomy reference, methodological decisions
+  ├── data/                    Stimuli, taxonomy prompts, validation traces      
+  ├── study1_corpus/           Corpus generation, coding, and analysis pipeline  
+  │   ├── scripts/             10 pipeline scripts (generate → code → validate → analyse)   
+  │   ├── notebooks/           9 analysis notebooks + helper module  
+  │   └── results/             Report, figures, and tables    
+  ├── study2a_probes/          Activation extraction and linear probe training    
+  │   ├── scripts/             6 pipeline scripts  
+  │   ├── notebooks/           Probe analysis notebook    
+  │   └── results/             Confusion matrices and probe report  
+  ├── study2b_steering/        Steering vector experiments      
+  │   ├── scripts/             4 pipeline scripts   
+  │   ├── notebooks/           Steering analysis notebook     
+  │   └── results/             Steering effect summaries and figures   
+  └── docs/                    Taxonomy reference, methodological decisions     
 
   ## Reproduction
 
