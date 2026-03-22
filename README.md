@@ -157,8 +157,8 @@
   Related Work/Repositories
 
   This project builds on and extends:
-  - https://arxiv.org/abs/2503.XXX — Linear probes for reasoning categories
+  - https://arxiv.org/abs/2503.19143 — Linear probes for reasoning categories
     [thought-anchors](https://github.com/thcharara/thought-anchors) — Thought masking and rollout analysis (Bogdan et al. 2025 replication)
-  - https://arxiv.org/abs/2503.XXX — Steering vectors in thinking LLMs
+  - https://arxiv.org/abs/2503.18167 — Steering vectors in thinking LLMs
     [steering-thinking-llms](https://github.com/thcharara/steering-thinking-llms) — Steering vector training and evaluation (Venhoff et al. 2025 replication)
   
