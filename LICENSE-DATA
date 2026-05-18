@@ -1,0 +1,41 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Talia Charara
+
+The data, figures, and tables in this repository are licensed under the
+Creative Commons Attribution 4.0 International licence. You are free to:
+
+  * Share — copy and redistribute the material in any medium or format
+  * Adapt — remix, transform, and build upon the material for any purpose,
+    even commercially.
+
+Under the following terms:
+
+  * Attribution — You must give appropriate credit, provide a link to the
+    licence, and indicate if changes were made. You may do so in any
+    reasonable manner, but not in any way that suggests the licensor endorses
+    you or your use.
+
+No additional restrictions — You may not apply legal terms or technological
+measures that legally restrict others from doing anything the licence permits.
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+---
+
+Scope: this licence covers the contents of:
+
+  * `data/` — Zendo task stimuli, taxonomy prompts, the 21-trace coded corpus
+    sample, and the 10 manually coded validation traces.
+  * `study1_corpus/results/` — figures, tables, and the Study 1 report.
+  * `study2a_probes/results/` — confusion matrices, probe sweep CSVs, figures,
+    and the Study 2a report.
+  * `study2b_steering/results/` — steering result tables, figures, and the
+    Study 2b report.
+
+Source code in this repository is licensed separately under the MIT licence
+(see `LICENSE`).
+
+Suggested citation:
+  Charara, T. (2026). Chain-of-Thought Faithfulness Verification.
+  https://github.com/thcharara/cot-faithfulness
