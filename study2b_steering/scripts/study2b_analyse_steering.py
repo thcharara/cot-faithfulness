@@ -1,501 +1,412 @@
 #!/usr/bin/env python3
-"""Study 2b: Analyse steering experiment results.
+"""Study 2b: Statistical analysis of steering effects.
 
-Compares steered conditions to baseline across category distribution,
-completion rate, trace length, and transition entropy. Produces figures
-and a summary report.
+Loads `outputs/study2b_steering/per_trace_summaries.csv` (880 rows, 22 conditions)
+and computes:
+
+    2a. On-target steering effects (paired Wilcoxon vs baseline by seed,
+        Cohen's d, Bonferroni correction across the 20 alpha<=1.0 tests)
+    2b. Off-target effects: 20 x 9 shift matrix
+    2c. Dose-response: Spearman rank correlation between signed alpha and
+        on-target proportion across all 5 (or 6 for JUDGE) levels
+    2d. Completion rate per condition + Fisher's exact vs baseline
+    2e. Trace length per condition + Mann-Whitney U vs baseline
+    2f. Transition entropy per condition + Mann-Whitney U vs baseline
+    2g. JUDGE verdict breakdown per condition
+    2i. JUDGE_neg_2.0 transition matrix vs baseline transition matrix
+
+Outputs CSVs (and rebuilds heatmap matrix) into outputs/study2b_steering/.
+
+Figures are produced by the companion notebook / scripts in this directory.
 
 Usage:
-    .venv/Scripts/python.exe study2b_steering/scripts/study2b_analyse_steering.py
-    .venv/Scripts/python.exe study2b_steering/scripts/study2b_analyse_steering.py --pilot
+    .venv/Scripts/python.exe scripts/analyse_steering.py
 """
 
-import sys
-import io
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
-
 import argparse
+import io
+import json
+import sys
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from scipy.stats import wilcoxon
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
+from scipy.stats import wilcoxon, mannwhitneyu, fisher_exact, spearmanr
 
-# ── Paths ──
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
-RESULTS_DIR = PROJECT_ROOT / 'outputs' / 'study2b_steering'
-FIGURES_DIR = RESULTS_DIR / 'figures'
 
-# ── Constants ──
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument(
+    '--in-dir',
+    type=Path,
+    default=PROJECT_ROOT / 'study2b_steering' / 'results',
+    help='Directory containing per_trace_summaries.csv (default: study2b_steering/results/, the published artefacts)',
+)
+parser.add_argument(
+    '--out-dir',
+    type=Path,
+    default=PROJECT_ROOT / 'study2b_steering' / 'results',
+    help='Directory to write analysis tables (default: study2b_steering/results/)',
+)
+parser.add_argument(
+    '--steered-dir',
+    type=Path,
+    default=PROJECT_ROOT / 'outputs' / 'steered_traces',
+    help='Raw steered-trace directory (only needed for the transition-matrix step; not published in the public repo)',
+)
+args = parser.parse_args()
+IN_DIR = args.in_dir
+OUT_DIR = args.out_dir
+STEERED_DIR = args.steered_dir
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+PER_TRACE_CSV = IN_DIR / 'per_trace_summaries.csv'
+
 MICRO_LABELS = ['ORIENT', 'DESCRIBE', 'SYNTHESIZE', 'HYPO', 'TEST',
                 'JUDGE', 'PLAN', 'MONITOR', 'RULE']
 STEER_CATEGORIES = ['HYPO', 'TEST', 'JUDGE', 'MONITOR', 'PLAN']
-ALPHAS = [0.5, 1.0, 2.0]
+
+# 20 alpha<=1.0 conditions used for the primary on-target multiple-comparison family.
+PRIMARY_CONDITIONS = [
+    f'{cat}_{d}_{a}' for cat in STEER_CATEGORIES for d in ('pos', 'neg') for a in ('0.5', '1.0')
+]
+# JUDGE_neg_2.0 is treated as exploratory (not in Bonferroni family), reported separately.
 
 
-def load_all_per_trace():
-    """Load per-trace CSVs for all conditions. Returns dict of DataFrames."""
-    data = {}
-    for f in sorted(RESULTS_DIR.glob('*_per_trace.csv')):
-        condition = f.stem.replace('_per_trace', '')
-        df = pd.read_csv(f)
-        data[condition] = df
-    return data
+def cohens_d_paired(diff):
+    diff = np.asarray(diff, dtype=float)
+    sd = diff.std(ddof=1)
+    return float(diff.mean() / sd) if sd > 0 else 0.0
 
 
-def parse_condition(name):
-    """Parse condition name into (category, direction, alpha) or None for baseline."""
-    if name in ('baseline', 'pilot_baseline'):
-        return None
-    parts = name.split('_')
-    if len(parts) >= 3:
-        try:
-            cat = parts[0]
-            direction = parts[1]
-            alpha = float(parts[2])
-            return cat, direction, alpha
-        except (ValueError, IndexError):
-            return None
-    return None
+def paired_aligned(df_a, df_b, col):
+    """Align by seed, return (a_vals, b_vals) numpy arrays where both have a value."""
+    merged = pd.merge(
+        df_a[['seed', col]].rename(columns={col: 'a'}),
+        df_b[['seed', col]].rename(columns={col: 'b'}),
+        on='seed', how='inner'
+    )
+    return merged['a'].values, merged['b'].values
 
 
-def cohens_d(x, y):
-    """Compute Cohen's d for paired samples."""
-    diff = np.array(x) - np.array(y)
-    return diff.mean() / diff.std() if diff.std() > 0 else 0.0
+# ── Section 2a + 2b: shift table for every (steered_condition, label) ──
 
-
-def compute_steering_effects(data, baseline_key='baseline'):
-    """Compare each steered condition to baseline."""
-    if baseline_key not in data:
-        # Try pilot baseline
-        baseline_key = 'pilot_baseline'
-    if baseline_key not in data:
-        print("ERROR: No baseline found in data")
-        return pd.DataFrame()
-
-    baseline = data[baseline_key]
-    results = []
-
-    for condition, df in data.items():
-        parsed = parse_condition(condition)
-        if parsed is None:
+def compute_on_off_target(df):
+    """Return DataFrame with one row per condition x label.
+    Columns: condition, category, direction, alpha, label, mean_steered,
+             mean_baseline, shift, cohen_d, wilcoxon_stat, p_raw,
+             on_target (bool).
+    """
+    base = df[df['condition'] == 'baseline'].copy()
+    rows = []
+    for cond in df['condition'].unique():
+        if cond == 'baseline':
             continue
-
-        cat, direction, alpha = parsed
-
-        # Need same number of traces for paired test
-        n = min(len(baseline), len(df))
-        if n < 2:
-            # Cannot run statistical test with < 2 pairs
-            row = {
-                'condition': condition,
+        sub = df[df['condition'] == cond].copy()
+        cat = sub['steer_category'].iloc[0]
+        direction = sub['steer_direction'].iloc[0]
+        alpha = float(sub['alpha'].iloc[0])
+        for label in MICRO_LABELS:
+            col = f'prop_{label}'
+            steered_v, base_v = paired_aligned(sub, base, col)
+            n = len(steered_v)
+            diff = steered_v - base_v
+            shift = diff.mean()
+            d = cohens_d_paired(diff)
+            try:
+                stat, p = wilcoxon(steered_v, base_v, zero_method='wilcox', alternative='two-sided')
+                stat = float(stat); p = float(p)
+            except ValueError:
+                stat, p = float('nan'), 1.0
+            rows.append({
+                'condition': cond,
                 'category': cat,
                 'direction': direction,
                 'alpha': alpha,
-                'n_traces': len(df),
-            }
-            for label in MICRO_LABELS:
-                col = f'prop_{label}' if f'prop_{label}' in df.columns else label
-                if col in df.columns:
-                    row[f'mean_{label}'] = df[col].mean()
-                    baseline_mean = baseline[col].mean() if col in baseline.columns else 0
-                    row[f'shift_{label}'] = row[f'mean_{label}'] - baseline_mean
-                    row[f'd_{label}'] = 0.0
-                    row[f'p_{label}'] = 1.0
-            row['completion_rate'] = df['completed'].mean() if 'completed' in df.columns else np.nan
-            row['mean_n_sentences'] = df['n_sentences'].mean() if 'n_sentences' in df.columns else np.nan
-            row['mean_entropy'] = df['transition_entropy'].mean() if 'transition_entropy' in df.columns else np.nan
-            results.append(row)
-            continue
-
-        row = {
-            'condition': condition,
-            'category': cat,
-            'direction': direction,
-            'alpha': alpha,
-            'n_traces': len(df),
-        }
-
-        for label in MICRO_LABELS:
-            # Use prop_{label} column if available, else just {label}
-            col = f'prop_{label}' if f'prop_{label}' in df.columns else label
-            if col not in df.columns:
-                continue
-
-            steered_vals = df[col].values[:n]
-            baseline_vals = baseline[col].values[:n]
-
-            row[f'mean_{label}'] = float(steered_vals.mean())
-            row[f'shift_{label}'] = float(steered_vals.mean() - baseline_vals.mean())
-            row[f'd_{label}'] = cohens_d(steered_vals, baseline_vals)
-
-            # Wilcoxon signed-rank (paired)
-            try:
-                stat, p = wilcoxon(steered_vals, baseline_vals)
-                row[f'p_{label}'] = p
-            except ValueError:
-                row[f'p_{label}'] = 1.0
-
-        # Completion rate
-        if 'completed' in df.columns:
-            row['completion_rate'] = df['completed'].mean()
-        if 'n_sentences' in df.columns:
-            row['mean_n_sentences'] = df['n_sentences'].mean()
-        if 'transition_entropy' in df.columns:
-            row['mean_entropy'] = df['transition_entropy'].mean()
-
-        results.append(row)
-
-    return pd.DataFrame(results)
-
-
-def build_shift_matrix(effects_df, alpha_filter=1.0):
-    """Build category-shift matrix: rows=steered categories, cols=all labels.
-
-    Returns (matrix, row_labels, col_labels)
-    """
-    filtered = effects_df[effects_df['alpha'] == alpha_filter]
-
-    rows = []
-    row_labels = []
-
-    for cat in STEER_CATEGORIES:
-        for direction in ['pos', 'neg']:
-            mask = (filtered['category'] == cat) & (filtered['direction'] == direction)
-            if mask.sum() == 0:
-                continue
-            row_data = filtered[mask].iloc[0]
-            shifts = [row_data.get(f'shift_{label}', 0.0) for label in MICRO_LABELS]
-            rows.append(shifts)
-            sign = '+' if direction == 'pos' else '-'
-            row_labels.append(f'{cat}{sign}')
-
-    if not rows:
-        return None, None, None
-
-    matrix = np.array(rows)
-    return matrix, row_labels, MICRO_LABELS
-
-
-def build_dose_response(effects_df):
-    """Build dose-response table: for each category, target proportion vs alpha."""
-    rows = []
-    for cat in STEER_CATEGORIES:
-        cat_df = effects_df[effects_df['category'] == cat]
-        for _, row in cat_df.iterrows():
-            sign = 1 if row['direction'] == 'pos' else -1
-            signed_alpha = sign * row['alpha']
-            target_prop = row.get(f'mean_{cat}', np.nan)
-            rows.append({
-                'category': cat,
-                'signed_alpha': signed_alpha,
-                'target_proportion': target_prop,
-                'shift': row.get(f'shift_{cat}', np.nan),
-                'cohens_d': row.get(f'd_{cat}', np.nan),
+                'label': label,
+                'on_target': (label == cat),
+                'n_pairs': n,
+                'mean_baseline': float(base_v.mean()),
+                'mean_steered': float(steered_v.mean()),
+                'shift': float(shift),
+                'cohen_d': d,
+                'wilcoxon_stat': stat,
+                'p_raw': p,
             })
-
     return pd.DataFrame(rows)
 
 
-# ── Visualisations ──
-
-def plot_category_shift_heatmap(matrix, row_labels, col_labels, save_path):
-    """Heatmap: rows=steered conditions, cols=all labels, cell=shift."""
-    fig, ax = plt.subplots(figsize=(12, max(4, len(row_labels) * 0.6 + 1)))
-
-    vmax = max(abs(matrix.min()), abs(matrix.max()), 0.05)
-    cmap = plt.cm.RdBu_r
-
-    im = ax.imshow(matrix, cmap=cmap, vmin=-vmax, vmax=vmax, aspect='auto')
-
-    ax.set_xticks(range(len(col_labels)))
-    ax.set_xticklabels(col_labels, rotation=45, ha='right')
-    ax.set_yticks(range(len(row_labels)))
-    ax.set_yticklabels(row_labels)
-
-    # Annotate cells
-    for i in range(len(row_labels)):
-        for j in range(len(col_labels)):
-            val = matrix[i, j]
-            color = 'white' if abs(val) > vmax * 0.5 else 'black'
-            ax.text(j, i, f'{val:+.3f}', ha='center', va='center',
-                    fontsize=8, color=color)
-
-    plt.colorbar(im, ax=ax, label='Shift from baseline')
-    ax.set_title('Category Distribution Shift (steered - baseline)')
-    fig.tight_layout()
-    fig.savefig(save_path, dpi=150, bbox_inches='tight')
-    plt.close(fig)
-    print(f"  Saved: {save_path.name}")
+def add_bonferroni(df, family_mask, p_col='p_raw', out_col='p_bonf'):
+    """Apply Bonferroni within the family rows (others get NaN)."""
+    df[out_col] = float('nan')
+    fam = df[family_mask]
+    n = len(fam)
+    if n > 0:
+        df.loc[family_mask, out_col] = (fam[p_col] * n).clip(upper=1.0)
+    df['significant_005'] = df[out_col] < 0.05
+    return df
 
 
-def plot_dose_response(dose_df, baseline_data, save_path):
-    """Dose-response curves: target category proportion vs signed alpha."""
-    categories = dose_df['category'].unique()
-    n_cats = len(categories)
-    if n_cats == 0:
-        return
+# ── Section 2c: Dose-response ──
 
-    fig, axes = plt.subplots(1, n_cats, figsize=(4 * n_cats, 4), squeeze=False)
-    axes = axes[0]
-
-    for i, cat in enumerate(categories):
-        ax = axes[i]
-        cat_data = dose_df[dose_df['category'] == cat].sort_values('signed_alpha')
-
-        # Add baseline point at alpha=0
-        if baseline_data is not None:
-            col = f'prop_{cat}' if f'prop_{cat}' in baseline_data.columns else cat
-            if col in baseline_data.columns:
-                baseline_val = baseline_data[col].mean()
-            else:
-                baseline_val = 0
+def compute_dose_response(df):
+    """Per category, return per-trace pairs of (signed_alpha, on-target prop)
+    and overall Spearman rank correlation across condition means."""
+    rows = []
+    summary = []
+    for cat in STEER_CATEGORIES:
+        target_col = f'prop_{cat}'
+        # Get all conditions for this category + baseline (signed_alpha=0)
+        sub = df[(df['steer_category'] == cat) | (df['condition'] == 'baseline')]
+        # For category-based dose-response, exclude alpha=2.0 EXCEPT for JUDGE
+        if cat != 'JUDGE':
+            sub = sub[sub['alpha'] <= 1.0]
+        for _, r in sub.iterrows():
+            rows.append({
+                'category': cat,
+                'condition': r['condition'],
+                'signed_alpha': float(r['signed_alpha']),
+                'target_prop': float(r[target_col]),
+                'seed': int(r['seed']),
+            })
+        # Per-condition means for monotonicity test
+        cond_means = sub.groupby(['condition', 'signed_alpha'])[target_col].mean().reset_index()
+        cond_means = cond_means.sort_values('signed_alpha')
+        if len(cond_means) >= 3:
+            rho, p = spearmanr(cond_means['signed_alpha'], cond_means[target_col])
         else:
-            baseline_val = 0
-
-        alphas = list(cat_data['signed_alpha'])
-        props = list(cat_data['target_proportion'])
-
-        # Insert baseline at 0
-        all_alphas = sorted(set(alphas + [0]))
-        all_props = []
-        for a in all_alphas:
-            if a == 0:
-                all_props.append(baseline_val)
-            else:
-                idx = alphas.index(a) if a in alphas else None
-                all_props.append(props[idx] if idx is not None else np.nan)
-
-        ax.plot(all_alphas, all_props, 'o-', color='steelblue', linewidth=2)
-        ax.axhline(y=baseline_val, color='gray', linestyle='--', alpha=0.5,
-                   label='baseline')
-        ax.axvline(x=0, color='gray', linestyle=':', alpha=0.3)
-        ax.set_xlabel('Signed alpha')
-        ax.set_ylabel(f'{cat} proportion')
-        ax.set_title(cat)
-        ax.legend(fontsize=8)
-
-    fig.suptitle('Dose-Response: Target Category Proportion vs Steering Strength',
-                 fontsize=12)
-    fig.tight_layout()
-    fig.savefig(save_path, dpi=150, bbox_inches='tight')
-    plt.close(fig)
-    print(f"  Saved: {save_path.name}")
+            rho, p = float('nan'), float('nan')
+        summary.append({
+            'category': cat,
+            'n_levels': len(cond_means),
+            'spearman_rho': float(rho),
+            'spearman_p': float(p),
+            'levels': cond_means['signed_alpha'].tolist(),
+            'means': cond_means[target_col].round(4).tolist(),
+        })
+    return pd.DataFrame(rows), pd.DataFrame(summary)
 
 
-def plot_completion_by_condition(effects_df, baseline_rate, save_path):
-    """Bar chart of completion rate by condition."""
-    if 'completion_rate' not in effects_df.columns:
-        return
+# ── Section 2d: Completion rate ──
 
-    fig, ax = plt.subplots(figsize=(max(8, len(effects_df) * 0.5), 5))
-
-    conditions = effects_df['condition'].values
-    rates = effects_df['completion_rate'].values
-
-    colors = []
-    for _, row in effects_df.iterrows():
-        if row['direction'] == 'pos':
-            colors.append('steelblue')
+def compute_completion(df):
+    base = df[df['condition'] == 'baseline']
+    base_complete = int(base['completed'].sum()); base_total = len(base)
+    rows = []
+    for cond in df['condition'].unique():
+        sub = df[df['condition'] == cond]
+        n_complete = int(sub['completed'].sum()); n_total = len(sub)
+        # Fisher's exact: 2x2 (cond_complete, cond_incomplete) vs (base_complete, base_incomplete)
+        if cond == 'baseline':
+            odds_ratio, p = float('nan'), float('nan')
         else:
-            colors.append('coral')
-
-    x = range(len(conditions))
-    ax.bar(x, rates, color=colors, alpha=0.8)
-    ax.axhline(y=baseline_rate, color='black', linestyle='--', linewidth=2,
-               label=f'Baseline ({baseline_rate:.2f})')
-    ax.set_xticks(x)
-    ax.set_xticklabels(conditions, rotation=45, ha='right', fontsize=8)
-    ax.set_ylabel('Completion Rate')
-    ax.set_title('Completion Rate by Steering Condition')
-    ax.legend()
-
-    fig.tight_layout()
-    fig.savefig(save_path, dpi=150, bbox_inches='tight')
-    plt.close(fig)
-    print(f"  Saved: {save_path.name}")
+            try:
+                table = [[n_complete, n_total - n_complete],
+                         [base_complete, base_total - base_complete]]
+                odds_ratio, p = fisher_exact(table, alternative='two-sided')
+            except Exception:
+                odds_ratio, p = float('nan'), float('nan')
+        rows.append({
+            'condition': cond,
+            'n_complete': n_complete, 'n_total': n_total,
+            'completion_rate': n_complete / n_total if n_total else float('nan'),
+            'fisher_odds_ratio': float(odds_ratio) if odds_ratio == odds_ratio else float('nan'),
+            'fisher_p': float(p) if p == p else float('nan'),
+        })
+    return pd.DataFrame(rows)
 
 
-# ── Report ──
+# ── Section 2e + 2f: trace length + entropy ──
 
-def write_report(effects_df, shift_matrix, dose_df, baseline_data,
-                 save_path, pilot=False):
-    """Write markdown summary report."""
-    lines = [
-        "# Study 2b: Steering Vector Results\n",
-        f"**Status:** {'Pilot (3 traces)' if pilot else 'Full run'}\n",
-        "---\n",
-        "## 1. Experimental Design\n",
-        "- **Intervention:** Additive steering vector at layer 20 during generation",
-        "- **Categories steered:** " + ", ".join(STEER_CATEGORIES),
-        "- **Directions:** positive (+alpha) and negative (-alpha)",
-        "- **Strengths:** alpha in {0.5, 1.0, 2.0}",
-        "- **Normalisation:** Vectors normalised to mean activation magnitude "
-        "(12.69 at layer 20)\n",
-    ]
+def compute_simple_stat(df, col, label):
+    base = df[df['condition'] == 'baseline'][col].dropna().values
+    rows = []
+    for cond in df['condition'].unique():
+        vals = df[df['condition'] == cond][col].dropna().values
+        if cond == 'baseline':
+            stat, p = float('nan'), float('nan')
+        else:
+            try:
+                stat, p = mannwhitneyu(vals, base, alternative='two-sided')
+                stat = float(stat); p = float(p)
+            except ValueError:
+                stat, p = float('nan'), float('nan')
+        rows.append({
+            'condition': cond,
+            f'mean_{label}': float(vals.mean()) if len(vals) else float('nan'),
+            f'sd_{label}': float(vals.std(ddof=1)) if len(vals) > 1 else float('nan'),
+            f'mwu_stat': stat,
+            f'mwu_p': p,
+        })
+    return pd.DataFrame(rows)
 
-    # Baseline summary
-    if baseline_data is not None:
-        lines.append("## 2. Baseline\n")
-        n = len(baseline_data)
-        lines.append(f"- **N traces:** {n}")
-        if 'completed' in baseline_data.columns:
-            lines.append(f"- **Completion rate:** {baseline_data['completed'].mean():.3f}")
-        if 'n_sentences' in baseline_data.columns:
-            lines.append(f"- **Mean trace length:** "
-                         f"{baseline_data['n_sentences'].mean():.1f} sentences")
-        lines.append("")
 
-        # Category distribution
-        lines.append("| Category | Proportion |")
-        lines.append("|---|---|")
-        for label in MICRO_LABELS:
-            col = f'prop_{label}' if f'prop_{label}' in baseline_data.columns else label
-            if col in baseline_data.columns:
-                lines.append(f"| {label} | {baseline_data[col].mean():.3f} |")
-        lines.append("")
+# ── Section 2g: JUDGE verdict breakdown ──
 
-    # Steering effects
-    if len(effects_df) > 0:
-        lines.append("## 3. On-Target Steering Effects\n")
-        lines.append("| Condition | Target Category | Shift | Cohen's d | p-value |")
-        lines.append("|---|---|---|---|---|")
+def compute_judge_verdicts(df):
+    """Aggregate JUDGE verdicts across all sentences in each condition.
+    Re-load coded traces to access sentence-level judgement."""
+    rows = []
+    for cond_dir in sorted(STEERED_DIR.iterdir()):
+        if not cond_dir.is_dir():
+            continue
+        cond = cond_dir.name
+        if cond not in df['condition'].unique():
+            continue
+        accept = reject = uncertain = total = 0
+        for fp in cond_dir.rglob('trace_*_coded.json'):
+            try:
+                with open(fp, encoding='utf-8-sig') as f:
+                    t = json.load(f)
+            except Exception:
+                continue
+            for s in t.get('sentences', []) or []:
+                c = s.get('coding') or {}
+                if c.get('micro_label') == 'JUDGE':
+                    v = c.get('judgement')
+                    total += 1
+                    if v == 'accept':
+                        accept += 1
+                    elif v == 'reject':
+                        reject += 1
+                    elif v == 'uncertain':
+                        uncertain += 1
+        rows.append({
+            'condition': cond,
+            'n_judges': total,
+            'accept': accept, 'reject': reject, 'uncertain': uncertain,
+            'accept_rate': accept / total if total else float('nan'),
+            'reject_rate': reject / total if total else float('nan'),
+            'uncertain_rate': uncertain / total if total else float('nan'),
+        })
+    return pd.DataFrame(rows)
 
-        for _, row in effects_df.iterrows():
-            cat = row['category']
-            shift_col = f'shift_{cat}'
-            d_col = f'd_{cat}'
-            p_col = f'p_{cat}'
 
-            shift = row.get(shift_col, 0)
-            d = row.get(d_col, 0)
-            p = row.get(p_col, 1)
+# ── Section 2i: JUDGE_neg_2.0 transition matrix ──
 
-            sig = '*' if p < 0.05 else ''
-            lines.append(f"| {row['condition']} | {cat} | "
-                         f"{shift:+.3f} | {d:+.2f} | {p:.4f}{sig} |")
-        lines.append("")
-
-        # Off-target effects summary
-        lines.append("## 4. Off-Target Effects\n")
-        lines.append("See `category_shift_matrix.csv` and "
-                      "`figures/category_shift_heatmap.png` for full matrix.\n")
-
-        if shift_matrix is not None:
-            matrix, row_labels, col_labels = shift_matrix
-            max_off = 0
-            for i, rl in enumerate(row_labels):
-                cat = rl.rstrip('+-')
-                for j, cl in enumerate(col_labels):
-                    if cl != cat:
-                        max_off = max(max_off, abs(matrix[i, j]))
-            lines.append(f"- **Maximum off-target shift:** {max_off:.3f}")
-
-        lines.append("")
-
-        # Dose-response
-        if dose_df is not None and len(dose_df) > 0:
-            lines.append("## 5. Dose-Response\n")
-            lines.append("See `dose_response.csv` and "
-                          "`figures/dose_response_curves.png`.\n")
-
-        # Completion
-        lines.append("## 6. Completion Rate Effects\n")
-        if 'completion_rate' in effects_df.columns:
-            lines.append("| Condition | Rate |")
-            lines.append("|---|---|")
-            for _, row in effects_df.iterrows():
-                lines.append(f"| {row['condition']} | "
-                             f"{row.get('completion_rate', 0):.3f} |")
-        lines.append("")
-
-    lines.append("---\n")
-    lines.append("*Generated by `scripts/analyse_steering.py`*\n")
-
-    save_path.write_text('\n'.join(lines), encoding='utf-8')
-    print(f"  Report saved: {save_path.name}")
+def compute_transition_matrix(condition):
+    """Aggregate sentence-level micro-label transitions across all traces in `condition`."""
+    cond_dir = STEERED_DIR / condition
+    counts = np.zeros((len(MICRO_LABELS), len(MICRO_LABELS)), dtype=float)
+    idx = {l: i for i, l in enumerate(MICRO_LABELS)}
+    for fp in cond_dir.rglob('trace_*_coded.json'):
+        try:
+            with open(fp, encoding='utf-8-sig') as f:
+                t = json.load(f)
+        except Exception:
+            continue
+        labels = []
+        for s in t.get('sentences', []) or []:
+            c = s.get('coding') or {}
+            l = c.get('micro_label')
+            if l in idx:
+                labels.append(l)
+        for a, b in zip(labels[:-1], labels[1:]):
+            counts[idx[a], idx[b]] += 1
+    # Normalise rows to probabilities
+    row_sums = counts.sum(axis=1, keepdims=True)
+    probs = np.divide(counts, row_sums, out=np.zeros_like(counts), where=row_sums > 0)
+    return counts, probs
 
 
 # ── Main ──
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Analyse steering experiment results")
-    parser.add_argument('--pilot', action='store_true',
-                        help='Analyse pilot data only')
-    args = parser.parse_args()
+    print(f'Loading {PER_TRACE_CSV}...')
+    df = pd.read_csv(PER_TRACE_CSV)
+    print(f'  {len(df)} traces in {df.condition.nunique()} conditions')
 
-    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+    print('\n[2a/2b] On-target + off-target shifts (paired Wilcoxon vs baseline)...')
+    eff = compute_on_off_target(df)
 
-    # Load all per-trace data
-    data = load_all_per_trace()
-    if not data:
-        print("ERROR: No per-trace data found in", RESULTS_DIR)
-        print("Run code_steered_traces.py first.")
-        sys.exit(1)
+    # Bonferroni: correct ON-TARGET tests in the 20-condition primary family
+    on_target_primary = (eff['on_target']) & (eff['condition'].isin(PRIMARY_CONDITIONS))
+    eff = add_bonferroni(eff, on_target_primary, 'p_raw', 'p_bonf')
+    eff_path = OUT_DIR / 'shift_results.csv'
+    eff.to_csv(eff_path, index=False)
+    print(f'  Saved {eff_path.name} ({len(eff)} rows)')
 
-    print(f"Loaded {len(data)} conditions: {list(data.keys())}")
+    # On-target subset
+    on_target = eff[eff['on_target']].copy()
+    on_target_path = OUT_DIR / 'on_target_effects.csv'
+    on_target.to_csv(on_target_path, index=False)
+    n_sig = int(on_target_primary.sum() and (eff[on_target_primary]['p_bonf'] < 0.05).sum())
+    print(f'  Saved {on_target_path.name}  '
+          f'({(on_target["on_target"]).sum()} on-target rows; '
+          f'{n_sig} significant after Bonferroni in primary family of 20)')
 
-    # Identify baseline
-    baseline_key = 'baseline' if 'baseline' in data else 'pilot_baseline'
-    if baseline_key not in data:
-        print("ERROR: No baseline condition found")
-        sys.exit(1)
+    # Off-target shift matrix at alpha=1.0 (mean shift)
+    rows_alpha1 = eff[(eff['alpha'] == 1.0) & (eff['condition'] != 'JUDGE_neg_2.0')]
+    pivot = rows_alpha1.pivot_table(
+        index=['category', 'direction'], columns='label', values='shift', aggfunc='first')
+    pivot = pivot.reindex(columns=MICRO_LABELS)
+    pivot_p = rows_alpha1.pivot_table(
+        index=['category', 'direction'], columns='label', values='p_bonf', aggfunc='first')
+    pivot_p = pivot_p.reindex(columns=MICRO_LABELS)
+    shift_matrix_path = OUT_DIR / 'category_shift_matrix.csv'
+    pivot.to_csv(shift_matrix_path)
+    pivot_p.to_csv(OUT_DIR / 'category_shift_matrix_pbonf.csv')
+    print(f'  Saved {shift_matrix_path.name} (rows={len(pivot)}, cols={len(MICRO_LABELS)})')
 
-    baseline_data = data[baseline_key]
-    baseline_completion = (baseline_data['completed'].mean()
-                           if 'completed' in baseline_data.columns else 0)
+    print('\n[2c] Dose-response (Spearman over per-condition means)...')
+    dose_per_trace, dose_summary = compute_dose_response(df)
+    dose_per_trace.to_csv(OUT_DIR / 'dose_response_per_trace.csv', index=False)
+    dose_summary.to_csv(OUT_DIR / 'dose_response_summary.csv', index=False)
+    print(dose_summary[['category', 'n_levels', 'spearman_rho', 'spearman_p']].to_string(index=False))
 
-    print(f"Baseline: {len(baseline_data)} traces, "
-          f"completion={baseline_completion:.3f}")
+    print('\n[2d] Completion rate (Fisher\'s exact vs baseline)...')
+    comp = compute_completion(df)
+    comp.to_csv(OUT_DIR / 'completion_results.csv', index=False)
+    base_rate = comp[comp['condition'] == 'baseline']['completion_rate'].iloc[0]
+    sig_comp = comp[(comp['fisher_p'] < 0.05) & (comp['condition'] != 'baseline')]
+    print(f'  Baseline = {base_rate:.3f}; '
+          f'{len(sig_comp)} conditions differ from baseline at p<0.05 (uncorrected)')
 
-    # Compute effects
-    effects = compute_steering_effects(data, baseline_key)
-    if len(effects) > 0:
-        effects_path = RESULTS_DIR / 'steering_results.csv'
-        effects.to_csv(effects_path, index=False)
-        print(f"Results saved: {effects_path.name} ({len(effects)} conditions)")
+    print('\n[2e] Trace length (Mann-Whitney U vs baseline)...')
+    length_df = compute_simple_stat(df, 'n_sentences', 'length')
+    length_df.to_csv(OUT_DIR / 'length_results.csv', index=False)
+    sig_len = length_df[(length_df['mwu_p'] < 0.05) & (length_df['condition'] != 'baseline')]
+    print(f'  {len(sig_len)} conditions differ from baseline at p<0.05 (uncorrected)')
 
-    # Shift matrix
-    shift_result = build_shift_matrix(effects, alpha_filter=1.0)
-    matrix, row_labels, col_labels = shift_result
-    if matrix is not None:
-        shift_df = pd.DataFrame(matrix, index=row_labels, columns=col_labels)
-        shift_path = RESULTS_DIR / 'category_shift_matrix.csv'
-        shift_df.to_csv(shift_path)
-        print(f"Shift matrix saved: {shift_path.name}")
+    print('\n[2f] Transition entropy (Mann-Whitney U vs baseline)...')
+    ent_df = compute_simple_stat(df, 'transition_entropy', 'entropy')
+    ent_df.to_csv(OUT_DIR / 'entropy_results.csv', index=False)
+    sig_ent = ent_df[(ent_df['mwu_p'] < 0.05) & (ent_df['condition'] != 'baseline')]
+    print(f'  {len(sig_ent)} conditions differ from baseline at p<0.05 (uncorrected)')
 
-        plot_category_shift_heatmap(
-            matrix, row_labels, col_labels,
-            FIGURES_DIR / 'category_shift_heatmap.png')
+    if STEERED_DIR.exists():
+        print('\n[2g] JUDGE verdict breakdown (corpus-level)...')
+        jv = compute_judge_verdicts(df)
+        jv.to_csv(OUT_DIR / 'judge_verdicts.csv', index=False)
+        base_jv = jv[jv['condition'] == 'baseline'].iloc[0]
+        print(f"  Baseline: accept={base_jv['accept_rate']:.3f}, reject={base_jv['reject_rate']:.3f}, "
+              f"uncertain={base_jv['uncertain_rate']:.3f}")
 
-    # Dose-response
-    dose_df = build_dose_response(effects)
-    if len(dose_df) > 0:
-        dose_path = RESULTS_DIR / 'dose_response.csv'
-        dose_df.to_csv(dose_path, index=False)
-        print(f"Dose-response saved: {dose_path.name}")
+        print('\n[2i] Transition matrices (baseline + JUDGE_neg_2.0)...')
+        for cond in ('baseline', 'JUDGE_neg_2.0'):
+            counts, probs = compute_transition_matrix(cond)
+            pd.DataFrame(counts, index=MICRO_LABELS, columns=MICRO_LABELS).to_csv(
+                OUT_DIR / f'transition_matrix_{cond}_counts.csv')
+            pd.DataFrame(probs, index=MICRO_LABELS, columns=MICRO_LABELS).to_csv(
+                OUT_DIR / f'transition_matrix_{cond}_probs.csv')
+            print(f'  Saved transition_matrix_{cond}_counts.csv + _probs.csv')
+    else:
+        print(f'\n[2g, 2i] Skipped: raw steered-trace dir not found at {STEERED_DIR}')
+        print('  (These steps need the per-sentence coded JSONs which are not published.')
+        print('   The published judge_verdicts.csv and transition_matrix_*.csv in '
+              f'{OUT_DIR} already contain these results.)')
 
-        plot_dose_response(dose_df, baseline_data,
-                           FIGURES_DIR / 'dose_response_curves.png')
+    # On-target headline summary printout
+    print('\nOn-target headline (alpha<=1.0):')
+    headline = on_target[on_target['condition'].isin(PRIMARY_CONDITIONS)].copy()
+    headline = headline.sort_values(['category', 'direction', 'alpha'])
+    cols = ['condition', 'mean_baseline', 'mean_steered', 'shift', 'cohen_d', 'p_raw', 'p_bonf', 'significant_005']
+    print(headline[cols].to_string(index=False))
 
-    # Completion chart
-    if len(effects) > 0:
-        plot_completion_by_condition(
-            effects, baseline_completion,
-            FIGURES_DIR / 'completion_by_condition.png')
-
-    # Report
-    write_report(effects, shift_result, dose_df, baseline_data,
-                 RESULTS_DIR / 'study2b_report.md',
-                 pilot=args.pilot)
-
-    print("\nAnalysis complete.")
+    print('\n=== Analysis complete ===')
 
 
 if __name__ == '__main__':

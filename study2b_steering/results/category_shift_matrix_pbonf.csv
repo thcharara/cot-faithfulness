@@ -1,0 +1,11 @@
+category,direction,ORIENT,DESCRIBE,SYNTHESIZE,HYPO,TEST,JUDGE,PLAN,MONITOR,RULE
+HYPO,neg,,,,1.0,,,,,
+HYPO,pos,,,,0.0008197638089768589,,,,,
+JUDGE,neg,,,,,,1.0,,,
+JUDGE,pos,,,,,,1.0,,,
+MONITOR,neg,,,,,,,,1.0,
+MONITOR,pos,,,,,,,,2.324290107935667e-05,
+PLAN,neg,,,,,,,1.0,,
+PLAN,pos,,,,,,,1.0,,
+TEST,neg,,,,,0.02334358618099941,,,,
+TEST,pos,,,,,0.6415747485880274,,,,

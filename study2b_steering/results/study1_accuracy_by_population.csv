@@ -1,0 +1,5 @@
+population,n_total,n_completed,completion_rate,n_correct,accuracy_among_completed,accuracy_overall
+set_a,160,69,0.43125,0.0,0.0,0.0
+set_b_standard,40,18,0.45,0.0,0.0,0.0
+set_b_extended,120,76,0.6333333333333333,1.0,0.013157894736842105,0.008333333333333333
+set_b_all,160,94,0.5875,1.0,0.010638297872340425,0.00625

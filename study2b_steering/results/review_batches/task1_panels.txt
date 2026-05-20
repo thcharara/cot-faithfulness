@@ -1,0 +1,50 @@
+TASK 1 - Starred: A, E, F | Unstarred: B, C, D
+
+Panel A [STARRED] - 7 cones:
+  1. Large Red, tilted left (10°)
+  2. Large Green, Upright 0°
+  3. Large Blue, Upright 0°
+  4. Small Blue, Upright 0°
+  5. Medium Red, Upright 0°
+  6. Medium Green, Upside-down; Left tilted (10°)
+  7. Medium Green, Upright 0°
+
+Panel B [unstarred] - 5 cones:
+  1. Small Green, Lying right 90°; apex points right
+  2. Large Green, Upright 0°
+  3. Large Blue, Upright 0°
+  4. Medium Green, Lying right 90°; apex points right
+  5. Medium Green, Left tilted (30°); apex points up-left
+
+Panel C [unstarred] - 6 cones:
+  1. Medium Blue, Upright 0°
+  2. Large Green, Upright 0°
+  3. Large Green, Upright 0°
+  4. Small Blue, Lying right 90°; apex points right
+  5. Medium Blue, Left tilted (30°); apex points up-left
+  6. Small Green, Upright 0°
+
+Panel D [unstarred] - 5 cones:
+  1. Medium Blue, Upright 0°
+  2. Large Green, Upright 0°
+  3. Small Blue, Right tilted (40°); apex points right
+  4. Large Blue, Upright 0°
+  5. Small Blue, Upright 0°
+
+Panel E [STARRED] - 6 cones:
+  1. Medium Green, Upside-down; Right tilted (10°); apex points low-left
+  2. Small Red, Lying right 90°; apex points right
+  3. Small Blue, Left tilted (40°); apex points up-left
+  4. Large Green, Lying right 90°; apex points right
+  5. Medium Green, Upright 0°
+  6. Large Blue, Upright 0°
+
+Panel F [STARRED] - 8 cones:
+  1. Large Green, Upright 0°
+  2. Small Blue, Lying left 90°; apex points left
+  3. Large Blue, Lying left 90°; apex points left
+  4. Medium Red, Lying left 90°; apex points left
+  5. Small Green, Upright 0°
+  6. Small Red, Upside-down 180°
+  7. Medium Green, Upright 0°
+  8. Medium Blue, Upright 0°
