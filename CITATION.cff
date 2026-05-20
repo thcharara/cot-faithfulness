@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+title: Chain-of-Thought Faithfulness Verification
+message: "If you use this code, corpus, or methodology, please cite as below."
+type: software
+authors:
+  - family-names: Charara
+    given-names: Talia
+    # orcid: "https://orcid.org/0000-0000-0000-0000"  # fill in if applicable
+    # affiliation: ""                                  # fill in if applicable
+repository-code: "https://github.com/thcharara/cot-faithfulness"
+abstract: >
+  A multi-method framework for verifying whether large language models
+  use their chain-of-thought reasoning, combining behavioural taxonomy
+  coding with mechanistic interpretability (linear probes and activation
+  steering). Includes a corpus of 320 reasoning traces from
+  DeepSeek-R1-Distill-Llama-8B on visual inductive reasoning (Zendo)
+  tasks, a 9-category taxonomy of reasoning operations, 73,383
+  auto-coded sentences via Claude Sonnet, trained linear probes at
+  layers 0/10/20/31, and steering-vector interventions at layer 20
+  across 22 conditions.
+keywords:
+  - chain-of-thought
+  - cot-faithfulness
+  - mechanistic-interpretability
+  - linear-probes
+  - activation-steering
+  - reasoning
+  - large-language-models
+  - deepseek-r1
+license: MIT
+license-url: "https://github.com/thcharara/cot-faithfulness/blob/main/LICENSE"
+version: "1.0.0"
+date-released: "2026-05-18"
+references:
+  - type: article
+    authors:
+      - family-names: Bogdan
+        given-names: P.
+    title: "Thought Anchors: Which LLM Reasoning Steps Matter?"
+    year: 2025
+    url: "https://arxiv.org/abs/2506.19143"
+  - type: article
+    authors:
+      - family-names: Venhoff
+        given-names: C.
+    title: "Understanding Reasoning in Thinking Language Models via Steering Vectors"
+    year: 2025
+    url: "https://arxiv.org/abs/2506.18167"

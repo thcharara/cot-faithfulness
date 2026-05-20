@@ -19,7 +19,7 @@ directions causally shifts the model's reasoning behaviour.
 |---|---|---|
 | **Study 1** | Corpus generation, taxonomy development, auto-coding, sequential analysis | Completed |
 | **Study 2a** | Activation extraction and linear probe training | Completed |
-| **Study 2b** | Steering vector interventions | In progress |
+| **Study 2b** | Steering vector interventions | Completed |
 
 ## Key Results
 
@@ -35,10 +35,11 @@ directions causally shifts the model's reasoning behaviour.
 - Exceeds Bogdan et al. (2025) reference of 0.71 despite smaller model (8B vs 14B) and more categories (9 vs 8)
 - 7/9 categories mechanistically grounded (F1 > 0.65)
 
-**Study 2b — Steering (Preliminary)**
-- Additive steering at layer 20 with probe-derived directions
-- HYPO_pos shows +12.5% on-target shift at alpha=1.0
-- Full dose-response analysis in progress
+**Study 2b — Steering**
+- Additive steering at layer 20 with probe-derived directions; 22 conditions × 40 traces = 880 traces
+- **4/20 on-target tests significant after Bonferroni:** HYPO_pos_1.0 (+7.16pp, d=+0.70), MONITOR_pos_0.5 (+3.79pp, d=+0.85), MONITOR_pos_1.0 (+4.26pp, d=+0.62), TEST_neg_1.0 (−8.56pp, d=−0.54)
+- Monotonic dose-response for **TEST and MONITOR only** (Spearman ρ=0.90, p=0.037 each)
+- JUDGE_neg_2.0 (exploratory α): 0% completion, accept rate crushed to 0.9%
 
 ## Directory Structure
 
@@ -53,10 +54,11 @@ directions causally shifts the model's reasoning behaviour.
 │   ├── notebooks/           Probe analysis notebook
 │   └── results/             Confusion matrices and probe report
 ├── study2b_steering/        Steering vector experiments
-│   ├── scripts/             4 pipeline scripts
+│   ├── scripts/             9 pipeline scripts + review/ subdir
 │   ├── notebooks/           Steering analysis notebook
-│   └── results/             Steering effect summaries and figures
-└── docs/                    Taxonomy reference, methodological decisions
+│   └── results/             Effect tables, figures, report, review batches
+├── tests/                   Environment + sample-corpus smoke tests
+└── docs/                    Methodological decisions
 ```
 
 ## Reproduction
@@ -72,7 +74,11 @@ directions causally shifts the model's reasoning behaviour.
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+
+# Curated minimal install (loose floors, easier to maintain):
 pip install -r requirements.txt
+# Or exact-version reproduction of the runtime used for the reported results:
+# pip install -r requirements-lock.txt
 
 # Download model
 python download_model.py
@@ -83,6 +89,14 @@ python -m spacy download en_core_web_sm
 
 Copy `.env.example` to `.env` and fill in `ANTHROPIC_API_KEY` (required only
 for the Study 1 auto-coding step).
+
+Verify the environment before running anything heavyweight:
+
+```bash
+python tests/verify_install.py      # CPU, ~5 s — imports + GPU detection
+python tests/smoke_sample_trace.py  # CPU, ~5 s — sample corpus schema check
+python tests/test_model_4bit.py     # GPU, ~1 min — 4-bit model + native <think>
+```
 
 ### Study 1 Pipeline
 
@@ -171,3 +185,9 @@ This project builds on and extends:
 
 - Code: MIT — see [`LICENSE`](LICENSE).
 - Data, figures, and tables: CC BY 4.0 — see [`LICENSE-DATA`](LICENSE-DATA).
+
+## Citation
+
+If you use this code, corpus, or methodology, please cite via the
+[`CITATION.cff`](CITATION.cff) file (GitHub renders a "Cite this repository"
+button on the sidebar that exposes BibTeX and APA forms automatically).

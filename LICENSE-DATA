@@ -25,7 +25,7 @@ Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
 
 Scope: this licence covers the contents of:
 
-  * `data/` — Zendo task stimuli, taxonomy prompts, the 21-trace coded corpus
+  * `data/` — Zendo task stimuli, taxonomy prompts, the 20-trace coded corpus
     sample, and the 10 manually coded validation traces.
   * `study1_corpus/results/` — figures, tables, and the Study 1 report.
   * `study2a_probes/results/` — confusion matrices, probe sweep CSVs, figures,
